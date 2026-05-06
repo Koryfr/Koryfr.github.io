@@ -400,14 +400,11 @@
 
     <script>
         function showSection(sectionId) {
-            // Masquer toutes les sections
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
 
-            // Afficher la bonne section
             const target = document.getElementById(sectionId);
             if (target) target.classList.add('active');
 
-            // Mettre à jour le lien actif
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
             const activeLink = document.querySelector(`.nav-links a[data-section="${sectionId}"]`);
             if (activeLink) activeLink.classList.add('active-link');
@@ -415,7 +412,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Animation au scroll
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.card').forEach(card => {
                 if (card.getBoundingClientRect().top < window.innerHeight - 150) {
@@ -425,7 +421,6 @@
             });
         });
 
-        // Initialisation
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.nav-links a[data-section="parcours"]').classList.add('active-link');
 
