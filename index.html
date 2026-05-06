@@ -1,3 +1,6 @@
+Voici le code complet (partie tronquée affichée maintenant) :
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,317 +9,183 @@
 <title>Kory Eoga - Portfolio BTS SIO SISR</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
             line-height: 1.6;
-
             color: #fff;
-
             background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 50%, #8e24aa 100%);
-
             min-height: 100vh;
-
         }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
         header {
-
             background: rgba(74, 20, 140, 0.95);
-
             backdrop-filter: blur(10px);
-
             position: fixed;
-
             top: 0; left: 0; right: 0;
-
             z-index: 1000;
-
             padding: 0.5rem 0;
-
             box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-
         }
-
         nav { display: flex; justify-content: space-between; align-items: center; }
-
         .logo { font-size: 1.4rem; font-weight: bold; color: #fff; cursor: pointer; }
-
         .nav-links { display: flex; list-style: none; gap: 1.5rem; }
-
         .nav-links a {
-
             color: #fff;
-
             text-decoration: none;
-
             padding: 0.3rem 0.8rem;
-
             border-radius: 20px;
-
             transition: all 0.3s ease;
-
             font-size: 0.9rem;
-
             cursor: pointer;
-
         }
-
         .nav-links a:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-
         .nav-links a.active-link { background: rgba(255,255,255,0.2); }
-
         main { margin-top: 60px; padding: 2rem 0; }
-
         .section { display: none; animation: fadeIn 0.5s ease-in; }
-
         .section.active { display: block; }
-
         @keyframes fadeIn {
-
             from { opacity: 0; transform: translateY(20px); }
-
             to { opacity: 1; transform: translateY(0); }
-
         }
-
         .hero, .hero-alt {
-
             text-align: center;
-
             padding: 4rem 0;
-
             background: rgba(74, 20, 140, 0.3);
-
             border-radius: 20px;
-
             margin: 2rem 0;
-
             backdrop-filter: blur(10px);
-
         }
-
         .hero h1, .hero-alt h2 { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
-
         .hero p, .hero-alt p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
-
         .hero-alt p { margin-bottom: 0; }
-
         .btn {
-
             display: inline-block;
-
             padding: 12px 30px;
-
             background: linear-gradient(45deg, #8e24aa 0%, #ab47bc 100%);
-
             color: white;
-
             text-decoration: none;
-
             border-radius: 50px;
-
             transition: all 0.3s ease;
-
             font-weight: 600;
-
             text-transform: uppercase;
-
             letter-spacing: 1px;
-
         }
-
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-
         .btn i { margin-right: 8px; }
-
         .btn-group {
-
             display: flex;
-
             gap: 1rem;
-
             flex-wrap: wrap;
-
             margin: 1.5rem 0;
-
         }
-
         .card {
-
             background: rgba(74, 20, 140, 0.4);
-
             backdrop-filter: blur(10px);
-
             border-radius: 15px;
-
             padding: 2rem;
-
             margin: 1.5rem 0;
-
             border: 2px solid rgba(142, 36, 170, 0.3);
-
             transition: all 0.4s ease;
-
         }
-
         .card:hover {
-
             transform: translateY(-8px);
-
             box-shadow: 0 20px 40px rgba(142, 36, 170, 0.4);
-
             border-color: rgba(171, 71, 188, 0.8);
-
             border-width: 3px;
-
         }
-
         .card h3 { color: #e1bee7; margin-bottom: 1rem; font-size: 1.5rem; }
-
         .card h4 { color: #ce93d8; margin: 1rem 0 0.5rem; font-size: 1.2rem; }
-
         .card ul { list-style: none; padding-left: 0; }
-
         .card li { padding: 0.3rem 0; position: relative; padding-left: 1.5rem; }
-
         .card li::before { content: '▶️'; position: absolute; left: 0; color: #ab47bc; }
-
         .timeline { position: relative; padding: 2rem 0; }
-
         .timeline::before {
-
             content: '';
-
             position: absolute;
-
             left: 30px; top: 0; bottom: 0;
-
             width: 3px;
-
             background: linear-gradient(to bottom, #8e24aa, #ab47bc);
-
         }
-
         .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 80px; }
-
         .timeline-item::before {
-
             content: '';
-
             position: absolute;
-
             left: 18px; top: 0;
-
             width: 25px; height: 25px;
-
             border-radius: 50%;
-
             background: linear-gradient(45deg, #8e24aa, #ab47bc);
-
             border: 3px solid #4a148c;
-
         }
-
         .timeline-content {
-
             background: rgba(74, 20, 140, 0.4);
-
             padding: 1.5rem;
-
             border-radius: 10px;
-
             backdrop-filter: blur(10px);
-
         }
-
         .timeline-date { color: #e1bee7; font-weight: bold; margin-bottom: 0.5rem; }
-
         .grid {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
             gap: 2rem;
-
             margin: 2rem 0;
-
         }
-
         .section-header { text-align: center; margin-bottom: 3rem; }
-
         .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
-
         .section-header p { font-size: 1.1rem; opacity: 0.8; }
-
         .excel-section { padding: 20px 0 40px; }
-
         .excel-section h2 { font-size: 1.8rem; color: #e1bee7; margin-bottom: 20px; }
-
         .excel-wrapper {
-
             width: 100%;
-
             overflow: hidden;
-
             border-radius: 12px;
-
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-
             border: 2px solid rgba(142, 36, 170, 0.3);
-
         }
-
         .excel-wrapper iframe {
-
             display: block;
-
             width: 100%;
-
             height: 600px;
-
             border: none;
-
         }
-
+        .tag {
+            background: rgba(142,36,170,.5);
+            padding: .2rem .7rem;
+            border-radius: 12px;
+            font-size: .8rem;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-bottom: .5rem;
+        }
+        .project-badge {
+            background: rgba(142,36,170,.4);
+            padding: .2rem .8rem;
+            border-radius: 20px;
+            font-size: .8rem;
+            white-space: nowrap;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
         @media (max-width: 768px) {
-
             .nav-links { flex-direction: column; gap: 1rem; }
-
             .hero h1, .hero-alt h2 { font-size: 2rem; }
-
             .timeline-item { padding-left: 60px; }
-
             .excel-wrapper iframe { height: 400px; }
-
             .btn-group { flex-direction: column; }
-
         }
-
         footer {
-
             background: rgba(74, 20, 140, 0.8);
-
             text-align: center;
-
             padding: 2rem 0;
-
             margin-top: 4rem;
-
             backdrop-filter: blur(10px);
-
         }
-
         .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
-
         .social-links a { color: #fff; font-size: 1.5rem; transition: all 0.3s ease; }
-
         .social-links a:hover { color: #e1bee7; transform: translateY(-3px); }
 </style>
 </head>
@@ -334,6 +203,7 @@
 </nav>
 </header>
 <main class="container">
+
 <!-- ===== PARCOURS ===== -->
 <section id="parcours" class="section active">
 <div class="hero">
@@ -349,45 +219,46 @@
 </div>
 <div class="card">
 <h3>Présentation</h3>
-<p>Je m'appelle Kory Eoga, j'ai 20 ans et je suis actuellement en BTS SIO, spécialité SISR (Solutions d'Infrastructure, Systèmes et Réseaux). Depuis novembre 2025, j'effectue mon alternance chez Stimplus en tant que technicien support informatique. Mon parcours m'a permis de me réorienter avec motivation vers l'informatique après deux années de licence en Chimie-Biologie. Aujourd'hui, je développe mes compétences techniques à travers des missions concrètes en environnement professionnel, notamment dans le support utilisateur, la gestion des incidents, et l'administration réseau.</p>
+<p>Je m'appelle Kory Eoga, j'ai 20 ans et je suis actuellement en BTS SIO, spécialité SISR. Depuis novembre 2025, j'effectue mon alternance chez Stimplus en tant que technicien support informatique.</p>
 </div>
 <div class="timeline">
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="timeline-date">2017 – 2018</div>
-<h4>Brevet des collèges</h4>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="timeline-date">2018 – 2021</div>
-<h4>Baccalauréat</h4>
-<p>Lycée - filière générale</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="timeline-date">2021 – 2023</div>
-<h4>Licence 1 Chimie-Biologie</h4>
-<p>Première tentative puis redoublement validé</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="timeline-date">2023 – 2024</div>
-<h4>Licence 2 Chimie-Biologie</h4>
-<p>Arrêt en fin d'année pour réorientation</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="timeline-date">2024 – 2026</div>
-<h4>BTS SIO SISR</h4>
-<p>Formation en alternance chez Stimplus - Diplôme prévu juin 2026</p>
-</div>
-</div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">2017 – 2018</div>
+      <h4>Brevet des collèges</h4>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">2018 – 2021</div>
+      <h4>Baccalauréat</h4>
+      <p>Lycée - filière générale</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">2021 – 2023</div>
+      <h4>Licence 1 Chimie-Biologie</h4>
+      <p>Première tentative puis redoublement validé</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">2023 – 2024</div>
+      <h4>Licence 2 Chimie-Biologie</h4>
+      <p>Arrêt en fin d'année pour réorientation</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">2024 – 2026</div>
+      <h4>BTS SIO SISR</h4>
+      <p>Formation en alternance chez Stimplus - Diplôme prévu juin 2026</p>
+    </div>
+  </div>
 </div>
 </section>
+
 <!-- ===== PROJETS ===== -->
 <section id="projets" class="section">
 <div class="hero-alt">
@@ -397,7 +268,7 @@
 <div class="grid">
 <div class="card">
 <h3>🏢 Projets en Milieu Professionnel</h3>
-<p>La mission principale de ce stage était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité.</p>
+<p>La mission principale était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité.</p>
 <h4>Exemples de missions :</h4>
 <ul>
 <li>Sécurisation de la phase de démarrage d'un parc informatique</li>
@@ -413,7 +284,7 @@
 <h4>Compétences touchées :</h4>
 <ul>
 <li>Gérer le patrimoine informatique</li>
-<li>Répondre aux incidents et aux demandes d'assistance et d'évolution</li>
+<li>Répondre aux incidents et aux demandes d'assistance</li>
 <li>Travailler en mode projet</li>
 <li>Mettre à disposition des utilisateurs un service informatique</li>
 <li>Organiser son développement professionnel</li>
@@ -422,7 +293,7 @@
 <div class="card">
 <h3>🎓 Projets en Formation</h3>
 <h4>Atelier de professionnalisation n°1</h4>
-<p>Cet atelier avait pour objectif la création d'un environnement virtuel composé de différentes machines virtuelles : serveur Windows 2019, machine cliente Windows 10, routeur VyOS, serveur de fichiers TrueNAS.</p>
+<p>Création d'un environnement virtuel : Windows Server 2019, Windows 10, routeur VyOS, serveur TrueNAS.</p>
 <h4>Objectifs réalisés :</h4>
 <ul>
 <li>Ajout d'une nouvelle entreprise au domaine</li>
@@ -431,17 +302,10 @@
 <li>Mise en place de stratégies de groupe</li>
 <li>Configuration des services : DHCP, DNS, annuaire</li>
 </ul>
-<h4>Compétences développées :</h4>
-<ul>
-<li>Gérer le patrimoine informatique</li>
-<li>Répondre aux incidents et aux demandes d'assistance</li>
-<li>Travailler en mode projet</li>
-<li>Mettre à disposition des services informatiques</li>
-<li>Organiser son développement professionnel</li>
-</ul>
 </div>
 </div>
 </section>
+
 <!-- ===== VEILLE ===== -->
 <section id="veille" class="section">
 <div class="hero-alt">
@@ -450,7 +314,7 @@
 </div>
 <div class="card">
 <h3>📜 Qu'est-ce que le RGPD ?</h3>
-<p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il s'agit d'un règlement européen qui encadre le traitement des données personnelles des citoyens de l'Union Européenne.</p>
+<p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il encadre le traitement des données personnelles des citoyens de l'Union Européenne.</p>
 </div>
 <div class="card">
 <h3>🔑 Les grands principes du RGPD</h3>
@@ -458,27 +322,27 @@
 <li><strong>Licéité</strong> — Le traitement doit avoir une base légale</li>
 <li><strong>Minimisation des données</strong> — Ne collecter que les données strictement nécessaires</li>
 <li><strong>Limitation de la conservation</strong> — Ne pas garder les données plus longtemps que nécessaire</li>
-<li><strong>Intégrité et confidentialité</strong> — Protéger les données contre les accès non autorisés</li>
-<li><strong>Transparence</strong> — Informer clairement les personnes sur l'utilisation de leurs données</li>
-<li><strong>Droits des personnes</strong> — Droit d'accès, rectification, effacement, portabilité</li>
+<li><strong>Intégrité et confidentialité</strong> — Protéger contre les accès non autorisés</li>
+<li><strong>Transparence</strong> — Informer clairement les personnes</li>
+<li><strong>Droits des personnes</strong> — Accès, rectification, effacement, portabilité</li>
 </ul>
 </div>
 <div class="card">
 <h3>🏢 Impact en entreprise</h3>
 <ul>
 <li>Gestion des accès et des droits utilisateurs sur Active Directory</li>
-<li>Chiffrement des données sensibles sur les postes et serveurs</li>
-<li>Journalisation des accès aux données (logs)</li>
-<li>Politique de sauvegarde et de rétention des données</li>
-<li>Sensibilisation des utilisateurs aux bonnes pratiques</li>
+<li>Chiffrement des données sensibles</li>
+<li>Journalisation des accès (logs)</li>
+<li>Politique de sauvegarde et rétention</li>
+<li>Sensibilisation des utilisateurs</li>
 </ul>
 </div>
 <div class="card">
 <h3>⚠️ Les sanctions</h3>
 <ul>
 <li>Jusqu'à <strong>20 millions d'euros</strong> d'amende</li>
-<li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong> de l'entreprise</li>
-<li>Des avertissements et mises en demeure publiques</li>
+<li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong></li>
+<li>Avertissements et mises en demeure publiques</li>
 </ul>
 </div>
 <div class="card">
@@ -490,15 +354,17 @@
 </ul>
 </div>
 </section>
+
 <!-- ===== E5 ===== -->
 <section id="e5" class="section">
 <div class="hero-alt">
 <h2>Épreuve E5</h2>
-<p>Support et mise à disposition de services informatiques</p>
+<p>Support et mise à disposition de services informatiques — 7 réalisations professionnelles</p>
 </div>
+
 <div class="card">
 <h3>📋 Présentation de l'épreuve E5</h3>
-<p>Cette section détaillera ma préparation et mes réalisations pour l'épreuve E5 du BTS SIO SISR.</p>
+<p>Cette section regroupe les 7 projets réalisés dans le cadre de l'épreuve E5 du BTS SIO SISR.</p>
 <h4>Compétences évaluées :</h4>
 <ul>
 <li>Gérer le patrimoine informatique</li>
@@ -506,31 +372,209 @@
 <li>Développer la présence en ligne de l'organisation</li>
 <li>Travailler en mode projet</li>
 <li>Mettre à disposition des utilisateurs un service informatique</li>
+<li>Organiser son développement professionnel</li>
 </ul>
 </div>
-<!-- Bouton PDF E5 -->
+
 <div class="btn-group">
 <a href="docs/tableau.pdf" class="btn" target="_blank">
 <i class="fas fa-file-pdf"></i> Voir version PDF
 </a>
 </div>
-<!-- Iframe Excel E5 -->
+
+<div class="section-header" style="margin-top:2rem;">
+<h2>Mes 7 réalisations E5</h2>
+<p>Projets menés en environnement professionnel chez Stimplus / Goron</p>
+</div>
+
+<div class="grid">
+
+  <!-- PROJET 1 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>📧 Support Outlook / IMAP</h3>
+      <span class="project-badge">Sep 2023 – Mai 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Résolution d'erreurs de synchronisation Outlook (IMAP/SMTP) pour les utilisateurs Goron : dossiers non synchronisés, erreurs d'envoi/réception.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Vérification et correction des paramètres IMAP/SMTP (port 993 / 587)</li>
+      <li>Test de connectivité serveur (ping, telnet)</li>
+      <li>Vidage du cache OST et recréation des profils Outlook</li>
+      <li>Désactivation temporaire de l'antivirus / proxy pour diagnostic</li>
+      <li>Reconfiguration complète des comptes en cas d'échec</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Répondre aux incidents et demandes d'assistance</li></ul>
+    <div class="tags">
+      <span class="tag">Outlook</span>
+      <span class="tag">IMAP/SMTP</span>
+      <span class="tag">Windows 10/11</span>
+      <span class="tag">Cache OST</span>
+    </div>
+  </div>
+
+  <!-- PROJET 2 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>🔐 Azure AD / Entra ID – AADSTS90072</h3>
+      <span class="project-badge">Nov 2023 – Jan 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Résolution d'erreurs d'authentification Azure AD (AADSTS90072) — sessions expirées et cache corrompu sur poste non géré par Intune.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Identification du code erreur AADSTS90072</li>
+      <li>Déconnexion de tous les services Microsoft et nettoyage des credentials Windows</li>
+      <li>Suppression du cache %localappdata%\Packages et %appdata%\Microsoft</li>
+      <li>Reset du mot de passe utilisateur via admin M365</li>
+      <li>Intervention physique sur le poste pour réauthentification complète</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Répondre aux incidents et demandes d'assistance</li></ul>
+    <div class="tags">
+      <span class="tag">Entra ID</span>
+      <span class="tag">Microsoft 365</span>
+      <span class="tag">Azure AD</span>
+      <span class="tag">MFA</span>
+    </div>
+  </div>
+
+  <!-- PROJET 3 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>🔒 FortiGate SSL-VPN – Cert. / -6006 / 403</h3>
+      <span class="project-badge">Fév 2024 – Avr 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Diagnostic et résolution de problèmes SSL-VPN FortiGate : magasin de certificats vide, erreur -6006 et 403 Forbidden sur le portail.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Analyse des logs FortiClient (-6006 / 403)</li>
+      <li>Contrôle du certificat SSL sur la console FortiGate</li>
+      <li>Vérification de la date/heure du poste client</li>
+      <li>Réinstallation de FortiClient et validation config VPN (port 443)</li>
+      <li>Tests de connexion et accès réseau interne validés</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Gérer le patrimoine informatique</li><li>Répondre aux incidents</li></ul>
+    <div class="tags">
+      <span class="tag">FortiGate</span>
+      <span class="tag">FortiClient</span>
+      <span class="tag">SSL/VPN</span>
+      <span class="tag">Certificats</span>
+    </div>
+  </div>
+
+  <!-- PROJET 4 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>📨 Comète SQL – Configuration SMTP</h3>
+      <span class="project-badge">Mar 2024 – Mai 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Mise en place de l'envoi automatique d'e-mails depuis Comète SQL via un serveur SMTP Exchange avec authentification sécurisée.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Configuration SMTP dans Comète SQL (host, port 587/465)</li>
+      <li>Activation de l'authentification SMTP</li>
+      <li>Script SQL de test d'envoi et analyse des logs</li>
+      <li>Validation de la réception côté destinataire</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Mettre à disposition des utilisateurs un service informatique</li></ul>
+    <div class="tags">
+      <span class="tag">SQL Server</span>
+      <span class="tag">SMTP</span>
+      <span class="tag">Exchange</span>
+      <span class="tag">Comète SQL</span>
+    </div>
+  </div>
+
+  <!-- PROJET 5 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>📬 Réattribution boîte mail – Exchange Online</h3>
+      <span class="project-badge">Sep 2023 – Mai 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Transfert et délégation d'une boîte mail utilisateur dans Microsoft 365 : Full Access, Send As, synchronisation Outlook.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Connexion au Microsoft 365 Admin Center</li>
+      <li>Ajout des délégations Full Access et Send As</li>
+      <li>Réattribution ou transfert de la boîte</li>
+      <li>Vérification synchronisation Outlook côté utilisateur</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Gérer le patrimoine informatique</li></ul>
+    <div class="tags">
+      <span class="tag">Exchange Online</span>
+      <span class="tag">M365 Admin</span>
+      <span class="tag">Outlook</span>
+      <span class="tag">Délégation</span>
+    </div>
+  </div>
+
+  <!-- PROJET 6 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>📁 Droits dossiers partagés – NTS / Fiscom</h3>
+      <span class="project-badge">Sep 2023 – Mai 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Gestion et correction des permissions sur dossiers partagés réseau pour NTS et Fiscom : droits NTFS, partage, Active Directory.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Audit des droits NTFS et droits de partage existants</li>
+      <li>Ajout des utilisateurs dans les groupes AD appropriés</li>
+      <li>Propagation des droits sur les sous-dossiers</li>
+      <li>Tests d'accès lecture/écriture côté utilisateur</li>
+      <li>Documentation des modifications effectuées</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Gérer le patrimoine informatique</li></ul>
+    <div class="tags">
+      <span class="tag">Active Directory</span>
+      <span class="tag">NTFS</span>
+      <span class="tag">Windows Server</span>
+      <span class="tag">Partage réseau</span>
+    </div>
+  </div>
+
+  <!-- PROJET 7 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>🛡️ Authentification M365 – Entra ID / MFA</h3>
+      <span class="project-badge">Sep 2023 – Mai 2024</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Résolution de problèmes de connexion M365 : comptes bloqués, MFA défaillant, cache navigateur et Windows corrompus.</p>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Vérification du statut du compte dans Entra ID</li>
+      <li>Reset du mot de passe via admin M365</li>
+      <li>Réinitialisation et reconfiguration du MFA (Microsoft Authenticator)</li>
+      <li>Nettoyage cache navigateur et credentials Windows</li>
+      <li>Tests de reconnexion Outlook, Teams, SharePoint</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul><li>Répondre aux incidents et demandes d'assistance</li></ul>
+    <div class="tags">
+      <span class="tag">Entra ID</span>
+      <span class="tag">MFA</span>
+      <span class="tag">Microsoft 365</span>
+      <span class="tag">Authenticator</span>
+    </div>
+  </div>
+
+</div><!-- fin .grid -->
+
 <div class="excel-section">
 <h2>Suivi de compétences (Excel)</h2>
 <div class="excel-wrapper">
 <iframe
-
-                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRMDrqGzhbFoqPKBdLoWfz61wG6YFI5kTR4VINW1PfqpsECZ3SGAEEDxr5zHnUs1Q/pubhtml?widget=true&headers=false"
-
-                        width="100%"
-
-                        height="600"
-
-                        style="border:none;">
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRMDrqGzhbFoqPKBdLoWfz61wG6YFI5kTR4VINW1PfqpsECZ3SGAEEDxr5zHnUs1Q/pubhtml?widget=true&headers=false"
+  width="100%" height="600" style="border:none;">
 </iframe>
 </div>
 </div>
 </section>
+
 <!-- ===== E6 ===== -->
 <section id="e6" class="section">
 <div class="hero-alt">
@@ -549,29 +593,22 @@
 <li>Projet professionnel et perspectives d'évolution</li>
 </ul>
 </div>
-<!-- Bouton PDF E6 -->
 <div class="btn-group">
 <a href="docs/tableau.pdf" class="btn" target="_blank">
 <i class="fas fa-file-pdf"></i> Voir version PDF
 </a>
 </div>
-<!-- Iframe Excel E6 -->
 <div class="excel-section">
 <h2>Suivi de compétences (Excel)</h2>
 <div class="excel-wrapper">
 <iframe
-
-                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRMDrqGzhbFoqPKBdLoWfz61wG6YFI5kTR4VINW1PfqpsECZ3SGAEEDxr5zHnUs1Q/pubhtml?widget=true&headers=false"
-
-                        width="100%"
-
-                        height="600"
-
-                        style="border:none;">
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRMDrqGzhbFoqPKBdLoWfz61wG6YFI5kTR4VINW1PfqpsECZ3SGAEEDxr5zHnUs1Q/pubhtml?widget=true&headers=false"
+  width="100%" height="600" style="border:none;">
 </iframe>
 </div>
 </div>
 </section>
+
 </main>
 <footer>
 <div class="container">
@@ -584,67 +621,39 @@
 </div>
 </footer>
 <script>
-
         function showSection(sectionId) {
-
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-
             const target = document.getElementById(sectionId);
-
             if (target) target.classList.add('active');
-
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
-
             const activeLink = document.querySelector('.nav-links a[data-section="' + sectionId + '"]');
-
             if (activeLink) activeLink.classList.add('active-link');
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
         }
-
         window.addEventListener('scroll', () => {
-
             document.querySelectorAll('.card').forEach(card => {
-
                 if (card.getBoundingClientRect().top < window.innerHeight - 150) {
-
                     card.style.opacity = '1';
-
                     card.style.transform = 'translateY(0)';
-
                 }
-
             });
-
         });
-
         document.addEventListener('DOMContentLoaded', () => {
-
             document.querySelector('.nav-links a[data-section="parcours"]').classList.add('active-link');
-
             document.querySelectorAll('.card').forEach((card, i) => {
-
                 card.style.opacity = '0';
-
                 card.style.transform = 'translateY(30px)';
-
                 card.style.transition = 'all 0.6s ease';
-
                 card.style.transitionDelay = i * 0.1 + 's';
-
                 setTimeout(() => {
-
                     card.style.opacity = '1';
-
                     card.style.transform = 'translateY(0)';
-
                 }, 100 + i * 100);
-
             });
-
         });
 </script>
 </body>
 </html>
- 
+```
+
+Tu peux copier tout ça et le coller directement dans ton fichier `index.html` sur GitHub.
