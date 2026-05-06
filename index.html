@@ -6,11 +6,7 @@
     <title>Kory Eoga - Portfolio BTS SIO SISR</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,43 +16,28 @@
             min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         header {
             background: rgba(74, 20, 140, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
             padding: 0.5rem 0;
             box-shadow: 0 2px 15px rgba(0,0,0,0.3);
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
 
         .logo {
             font-size: 1.4rem;
             font-weight: bold;
             color: #fff;
-            text-decoration: none;
             cursor: pointer;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
 
         .nav-links a {
             color: #fff;
@@ -70,43 +51,13 @@
             cursor: pointer;
         }
 
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
+        .nav-links a:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .nav-links a.active-link { background: rgba(255,255,255,0.2); }
 
-        .nav-links a:hover::before {
-            left: 100%;
-        }
+        main { margin-top: 60px; padding: 2rem 0; }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a.active-link {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        main {
-            margin-top: 60px;
-            padding: 2rem 0;
-        }
-
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .section.active {
-            display: block;
-        }
+        .section { display: none; animation: fadeIn 0.5s ease-in; }
+        .section.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -122,20 +73,8 @@
             backdrop-filter: blur(10px);
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #e1bee7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
 
         .btn {
             display: inline-block;
@@ -150,11 +89,7 @@
             letter-spacing: 1px;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         .btn i { margin-right: 8px; }
 
         .card {
@@ -174,61 +109,27 @@
             border-width: 3px;
         }
 
-        .card h3 {
-            color: #e1bee7;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .card h4 {
-            color: #ce93d8;
-            margin: 1rem 0 0.5rem;
-            font-size: 1.2rem;
-        }
-
+        .card h3 { color: #e1bee7; margin-bottom: 1rem; font-size: 1.5rem; }
+        .card h4 { color: #ce93d8; margin: 1rem 0 0.5rem; font-size: 1.2rem; }
         .card ul { list-style: none; padding-left: 0; }
+        .card li { padding: 0.3rem 0; position: relative; padding-left: 1.5rem; }
+        .card li::before { content: '▶'; position: absolute; left: 0; color: #ab47bc; }
 
-        .card li {
-            padding: 0.3rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .card li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #ab47bc;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
+        .timeline { position: relative; padding: 2rem 0; }
         .timeline::before {
             content: '';
             position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
+            left: 30px; top: 0; bottom: 0;
             width: 3px;
             background: linear-gradient(to bottom, #8e24aa, #ab47bc);
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 80px;
-        }
-
+        .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 80px; }
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 18px;
-            top: 0;
-            width: 25px;
-            height: 25px;
+            left: 18px; top: 0;
+            width: 25px; height: 25px;
             border-radius: 50%;
             background: linear-gradient(45deg, #8e24aa, #ab47bc);
             border: 3px solid #4a148c;
@@ -241,11 +142,7 @@
             backdrop-filter: blur(10px);
         }
 
-        .timeline-date {
-            color: #e1bee7;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+        .timeline-date { color: #e1bee7; font-weight: bold; margin-bottom: 0.5rem; }
 
         .grid {
             display: grid;
@@ -254,24 +151,9 @@
             margin: 2rem 0;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #e1bee7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
+        .section-header p { font-size: 1.1rem; opacity: 0.8; }
 
         @media (max-width: 768px) {
             .nav-links { flex-direction: column; gap: 1rem; }
@@ -287,35 +169,21 @@
             backdrop-filter: blur(10px);
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: #fff;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #e1bee7;
-            transform: translateY(-3px);
-        }
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+        .social-links a { color: #fff; font-size: 1.5rem; transition: all 0.3s ease; }
+        .social-links a:hover { color: #e1bee7; transform: translateY(-3px); }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a class="logo" onclick="showSection('parcours')">Kory Eoga</a>
+            <span class="logo" onclick="showSection('parcours')">Kory Eoga</span>
             <ul class="nav-links">
-                <li><a onclick="showSection('parcours')">Mon Parcours</a></li>
-                <li><a onclick="showSection('projets')">Projets</a></li>
-                <li><a onclick="showSection('veille')">Veille</a></li>
-                <li><a onclick="showSection('e5')">Épreuve E5</a></li>
-                <li><a onclick="showSection('e6')">Épreuve E6</a></li>
+                <li><a data-section="parcours" onclick="showSection('parcours')">Mon Parcours</a></li>
+                <li><a data-section="projets" onclick="showSection('projets')">Projets</a></li>
+                <li><a data-section="veille" onclick="showSection('veille')">Veille</a></li>
+                <li><a data-section="e5" onclick="showSection('e5')">Épreuve E5</a></li>
+                <li><a data-section="e6" onclick="showSection('e6')">Épreuve E6</a></li>
             </ul>
         </nav>
     </header>
@@ -383,11 +251,10 @@
                 <h2>Mes Projets</h2>
                 <p>Découvrez les projets réalisés en milieu professionnel et en formation</p>
             </div>
-
             <div class="grid">
                 <div class="card">
                     <h3>🏢 Projets en Milieu Professionnel</h3>
-                    <p>La mission principale de ce stage était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité. J'ai également eu l'occasion de prendre part à d'autres missions variées.</p>
+                    <p>La mission principale de ce stage était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité.</p>
                     <h4>Exemples de missions :</h4>
                     <ul>
                         <li>Sécurisation de la phase de démarrage d'un parc informatique</li>
@@ -409,7 +276,6 @@
                         <li>Organiser son développement professionnel</li>
                     </ul>
                 </div>
-
                 <div class="card">
                     <h3>🎓 Projets en Formation</h3>
                     <h4>Atelier de professionnalisation n°1</h4>
@@ -441,12 +307,12 @@
             </div>
             <div class="card">
                 <h3>📜 Qu'est-ce que le RGPD ?</h3>
-                <p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il s'agit d'un règlement européen qui encadre le traitement des données personnelles des citoyens de l'Union Européenne. Il s'applique à toute organisation, qu'elle soit publique ou privée, qui traite des données personnelles de résidents européens.</p>
+                <p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il s'agit d'un règlement européen qui encadre le traitement des données personnelles des citoyens de l'Union Européenne.</p>
             </div>
             <div class="card">
                 <h3>🔑 Les grands principes du RGPD</h3>
                 <ul>
-                    <li><strong>Licéité</strong> — Le traitement doit avoir une base légale (consentement, contrat, obligation légale...)</li>
+                    <li><strong>Licéité</strong> — Le traitement doit avoir une base légale</li>
                     <li><strong>Minimisation des données</strong> — Ne collecter que les données strictement nécessaires</li>
                     <li><strong>Limitation de la conservation</strong> — Ne pas garder les données plus longtemps que nécessaire</li>
                     <li><strong>Intégrité et confidentialité</strong> — Protéger les données contre les accès non autorisés</li>
@@ -456,7 +322,6 @@
             </div>
             <div class="card">
                 <h3>🏢 Impact en entreprise</h3>
-                <p>En tant que technicien informatique, le RGPD a des implications directes sur mon travail quotidien :</p>
                 <ul>
                     <li>Gestion des accès et des droits utilisateurs sur Active Directory</li>
                     <li>Chiffrement des données sensibles sur les postes et serveurs</li>
@@ -467,7 +332,6 @@
             </div>
             <div class="card">
                 <h3>⚠️ Les sanctions</h3>
-                <p>Le non-respect du RGPD peut entraîner des sanctions très lourdes de la part de la CNIL :</p>
                 <ul>
                     <li>Jusqu'à <strong>20 millions d'euros</strong> d'amende</li>
                     <li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong> de l'entreprise</li>
@@ -491,7 +355,7 @@
             </div>
             <div class="card">
                 <h3>📋 Présentation de l'épreuve E5</h3>
-                <p>Cette section détaillera ma préparation et mes réalisations pour l'épreuve E5 du BTS SIO SISR, portant sur le support et la mise à disposition de services informatiques.</p>
+                <p>Cette section détaillera ma préparation et mes réalisations pour l'épreuve E5 du BTS SIO SISR.</p>
                 <h4>Compétences évaluées :</h4>
                 <ul>
                     <li>Gérer le patrimoine informatique</li>
@@ -510,7 +374,7 @@
             </div>
             <div class="card">
                 <h3>🎯 Présentation de l'épreuve E6</h3>
-                <p>Cette section présentera mon parcours de professionnalisation, incluant mon alternance chez Stimplus et les compétences développées tout au long de ma formation.</p>
+                <p>Cette section présentera mon parcours de professionnalisation, incluant mon alternance chez Stimplus.</p>
                 <h4>Éléments du parcours :</h4>
                 <ul>
                     <li>Stages et alternance en entreprise</li>
@@ -536,11 +400,14 @@
 
     <script>
         function showSection(sectionId) {
+            // Masquer toutes les sections
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
 
+            // Afficher la bonne section
             const target = document.getElementById(sectionId);
             if (target) target.classList.add('active');
 
+            // Mettre à jour le lien actif
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
             const activeLink = document.querySelector(`.nav-links a[data-section="${sectionId}"]`);
             if (activeLink) activeLink.classList.add('active-link');
@@ -548,6 +415,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Animation au scroll
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.card').forEach(card => {
                 if (card.getBoundingClientRect().top < window.innerHeight - 150) {
@@ -557,12 +425,9 @@
             });
         });
 
+        // Initialisation
         document.addEventListener('DOMContentLoaded', () => {
-            const sections = ['parcours', 'projets', 'veille', 'e5', 'e6'];
-            document.querySelectorAll('.nav-links a').forEach((link, i) => {
-                link.setAttribute('data-section', sections[i]);
-            });
-            document.querySelector('.nav-links a').classList.add('active-link');
+            document.querySelector('.nav-links a[data-section="parcours"]').classList.add('active-link');
 
             document.querySelectorAll('.card').forEach((card, i) => {
                 card.style.opacity = '0';
