@@ -26,7 +26,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: rgba(74, 20, 140, 0.95);
             backdrop-filter: blur(10px);
@@ -50,6 +49,7 @@
             font-weight: bold;
             color: #fff;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .nav-links {
@@ -67,6 +67,7 @@
             position: relative;
             overflow: hidden;
             font-size: 0.9rem;
+            cursor: pointer;
         }
 
         .nav-links a::before {
@@ -89,7 +90,10 @@
             transform: translateY(-2px);
         }
 
-        /* Main Content */
+        .nav-links a.active-link {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         main {
             margin-top: 60px;
             padding: 2rem 0;
@@ -109,7 +113,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section */
         .hero {
             text-align: center;
             padding: 4rem 0;
@@ -152,11 +155,8 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        .btn i {
-            margin-right: 8px;
-        }
+        .btn i { margin-right: 8px; }
 
-        /* Cards */
         .card {
             background: rgba(74, 20, 140, 0.4);
             backdrop-filter: blur(10px);
@@ -186,10 +186,7 @@
             font-size: 1.2rem;
         }
 
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-        }
+        .card ul { list-style: none; padding-left: 0; }
 
         .card li {
             padding: 0.3rem 0;
@@ -204,7 +201,6 @@
             color: #ab47bc;
         }
 
-        /* Timeline */
         .timeline {
             position: relative;
             padding: 2rem 0;
@@ -251,7 +247,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -259,7 +254,6 @@
             margin: 2rem 0;
         }
 
-        /* Section Headers */
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -279,23 +273,12 @@
             opacity: 0.8;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .timeline-item {
-                padding-left: 60px;
-            }
+            .nav-links { flex-direction: column; gap: 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .timeline-item { padding-left: 60px; }
         }
 
-        /* Footer */
         footer {
             background: rgba(74, 20, 140, 0.8);
             text-align: center;
@@ -326,19 +309,18 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">Kory Eoga</a>
+            <a class="logo" onclick="showSection('parcours')">Kory Eoga</a>
             <ul class="nav-links">
-                <li><a href="#" onclick="showSection('parcours')">Mon Parcours</a></li>
-                <li><a href="#" onclick="showSection('projets')">Projets</a></li>
-                <li><a href="#" onclick="showSection('veille')">Veille</a></li>
-                <li><a href="#" onclick="showSection('e5')">Épreuve E5</a></li>
-                <li><a href="#" onclick="showSection('e6')">Épreuve E6</a></li>
+                <li><a onclick="showSection('parcours')">Mon Parcours</a></li>
+                <li><a onclick="showSection('projets')">Projets</a></li>
+                <li><a onclick="showSection('veille')">Veille</a></li>
+                <li><a onclick="showSection('e5')">Épreuve E5</a></li>
+                <li><a onclick="showSection('e6')">Épreuve E6</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <!-- Section Parcours -->
         <section id="parcours" class="section active">
             <div class="hero">
                 <h1>Kory Eoga</h1>
@@ -396,7 +378,6 @@
             </div>
         </section>
 
-        <!-- Section Projets -->
         <section id="projets" class="section">
             <div class="section-header">
                 <h2>Mes Projets</h2>
@@ -407,7 +388,6 @@
                 <div class="card">
                     <h3>🏢 Projets en Milieu Professionnel</h3>
                     <p>La mission principale de ce stage était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité. J'ai également eu l'occasion de prendre part à d'autres missions variées.</p>
-                    
                     <h4>Exemples de missions :</h4>
                     <ul>
                         <li>Sécurisation de la phase de démarrage d'un parc informatique</li>
@@ -420,7 +400,6 @@
                         <li>Gestion d'un Active Directory pour des utilisateurs</li>
                         <li>Remise à niveau d'un serveur d'impression</li>
                     </ul>
-
                     <h4>Compétences touchées :</h4>
                     <ul>
                         <li>Gérer le patrimoine informatique</li>
@@ -435,7 +414,6 @@
                     <h3>🎓 Projets en Formation</h3>
                     <h4>Atelier de professionnalisation n°1</h4>
                     <p>Cet atelier avait pour objectif la création d'un environnement virtuel composé de différentes machines virtuelles : serveur Windows 2019, machine cliente Windows 10, routeur VyOS, serveur de fichiers TrueNAS.</p>
-                    
                     <h4>Objectifs réalisés :</h4>
                     <ul>
                         <li>Ajout d'une nouvelle entreprise au domaine</li>
@@ -444,7 +422,6 @@
                         <li>Mise en place de stratégies de groupe</li>
                         <li>Configuration des services : DHCP, DNS, annuaire</li>
                     </ul>
-
                     <h4>Compétences développées :</h4>
                     <ul>
                         <li>Gérer le patrimoine informatique</li>
@@ -457,73 +434,64 @@
             </div>
         </section>
 
-        <!-- Section Veille -->
-<section id="veille" class="section">
-    <div class="section-header">
-        <h2>Veille Technologique</h2>
-        <p>Ma veille sur le RGPD et la conformité des données</p>
-    </div>
+        <section id="veille" class="section">
+            <div class="section-header">
+                <h2>Veille Technologique</h2>
+                <p>Ma veille sur le RGPD et la conformité des données</p>
+            </div>
+            <div class="card">
+                <h3>📜 Qu'est-ce que le RGPD ?</h3>
+                <p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il s'agit d'un règlement européen qui encadre le traitement des données personnelles des citoyens de l'Union Européenne. Il s'applique à toute organisation, qu'elle soit publique ou privée, qui traite des données personnelles de résidents européens.</p>
+            </div>
+            <div class="card">
+                <h3>🔑 Les grands principes du RGPD</h3>
+                <ul>
+                    <li><strong>Licéité</strong> — Le traitement doit avoir une base légale (consentement, contrat, obligation légale...)</li>
+                    <li><strong>Minimisation des données</strong> — Ne collecter que les données strictement nécessaires</li>
+                    <li><strong>Limitation de la conservation</strong> — Ne pas garder les données plus longtemps que nécessaire</li>
+                    <li><strong>Intégrité et confidentialité</strong> — Protéger les données contre les accès non autorisés</li>
+                    <li><strong>Transparence</strong> — Informer clairement les personnes sur l'utilisation de leurs données</li>
+                    <li><strong>Droits des personnes</strong> — Droit d'accès, rectification, effacement, portabilité</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🏢 Impact en entreprise</h3>
+                <p>En tant que technicien informatique, le RGPD a des implications directes sur mon travail quotidien :</p>
+                <ul>
+                    <li>Gestion des accès et des droits utilisateurs sur Active Directory</li>
+                    <li>Chiffrement des données sensibles sur les postes et serveurs</li>
+                    <li>Journalisation des accès aux données (logs)</li>
+                    <li>Politique de sauvegarde et de rétention des données</li>
+                    <li>Sensibilisation des utilisateurs aux bonnes pratiques</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>⚠️ Les sanctions</h3>
+                <p>Le non-respect du RGPD peut entraîner des sanctions très lourdes de la part de la CNIL :</p>
+                <ul>
+                    <li>Jusqu'à <strong>20 millions d'euros</strong> d'amende</li>
+                    <li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong> de l'entreprise</li>
+                    <li>Des avertissements et mises en demeure publiques</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📡 Sources de veille</h3>
+                <ul>
+                    <li><a href="https://www.cnil.fr" target="_blank" style="color:#e1bee7">CNIL — cnil.fr</a></li>
+                    <li><a href="https://www.anssi.fr" target="_blank" style="color:#e1bee7">ANSSI — anssi.fr</a></li>
+                    <li><a href="https://www.lemondeinformatique.fr" target="_blank" style="color:#e1bee7">Le Monde Informatique</a></li>
+                </ul>
+            </div>
+        </section>
 
-    <div class="card">
-        <h3>📜 Qu'est-ce que le RGPD ?</h3>
-        <p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il s'agit d'un règlement européen qui encadre le traitement des données personnelles des citoyens de l'Union Européenne. Il s'applique à toute organisation, qu'elle soit publique ou privée, qui traite des données personnelles de résidents européens.</p>
-    </div>
-
-    <div class="card">
-        <h3>🔑 Les grands principes du RGPD</h3>
-        <ul>
-            <li><strong>Licéité</strong> — Le traitement doit avoir une base légale (consentement, contrat, obligation légale...)</li>
-            <li><strong>Minimisation des données</strong> — Ne collecter que les données strictement nécessaires</li>
-            <li><strong>Limitation de la conservation</strong> — Ne pas garder les données plus longtemps que nécessaire</li>
-            <li><strong>Intégrité et confidentialité</strong> — Protéger les données contre les accès non autorisés</li>
-            <li><strong>Transparence</strong> — Informer clairement les personnes sur l'utilisation de leurs données</li>
-            <li><strong>Droits des personnes</strong> — Droit d'accès, rectification, effacement, portabilité</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>🏢 Impact en entreprise</h3>
-        <p>En tant que technicien informatique, le RGPD a des implications directes sur mon travail quotidien :</p>
-        <ul>
-            <li>Gestion des accès et des droits utilisateurs sur Active Directory</li>
-            <li>Chiffrement des données sensibles sur les postes et serveurs</li>
-            <li>Journalisation des accès aux données (logs)</li>
-            <li>Politique de sauvegarde et de rétention des données</li>
-            <li>Sensibilisation des utilisateurs aux bonnes pratiques</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>⚠️ Les sanctions</h3>
-        <p>Le non-respect du RGPD peut entraîner des sanctions très lourdes de la part de la CNIL (autorité française de contrôle) :</p>
-        <ul>
-            <li>Jusqu'à <strong>20 millions d'euros</strong> d'amende</li>
-            <li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong> de l'entreprise</li>
-            <li>Des avertissements et mises en demeure publiques</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>📡 Sources de veille</h3>
-        <ul>
-            <li><a href="https://www.cnil.fr" target="_blank" style="color:#e1bee7">CNIL — cnil.fr</a></li>
-            <li><a href="https://www.anssi.fr" target="_blank" style="color:#e1bee7">ANSSI — anssi.fr</a></li>
-            <li><a href="https://www.lemondeinformatique.fr" target="_blank" style="color:#e1bee7">Le Monde Informatique</a></li>
-        </ul>
-    </div>
-</section>
-
-        <!-- Section E5 -->
         <section id="e5" class="section">
             <div class="section-header">
                 <h2>Épreuve E5</h2>
                 <p>Support et mise à disposition de services informatiques</p>
             </div>
-
             <div class="card">
                 <h3>📋 Présentation de l'épreuve E5</h3>
                 <p>Cette section détaillera ma préparation et mes réalisations pour l'épreuve E5 du BTS SIO SISR, portant sur le support et la mise à disposition de services informatiques.</p>
-                
                 <h4>Compétences évaluées :</h4>
                 <ul>
                     <li>Gérer le patrimoine informatique</li>
@@ -535,17 +503,14 @@
             </div>
         </section>
 
-        <!-- Section E6 -->
         <section id="e6" class="section">
             <div class="section-header">
                 <h2>Épreuve E6</h2>
                 <p>Parcours de professionnalisation</p>
             </div>
-
             <div class="card">
                 <h3>🎯 Présentation de l'épreuve E6</h3>
                 <p>Cette section présentera mon parcours de professionnalisation, incluant mon alternance chez Stimplus et les compétences développées tout au long de ma formation.</p>
-                
                 <h4>Éléments du parcours :</h4>
                 <ul>
                     <li>Stages et alternance en entreprise</li>
@@ -571,53 +536,43 @@
 
     <script>
         function showSection(sectionId) {
-            // Masquer toutes les sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Afficher la section demandée
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            
-            // Faire défiler vers le haut
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+            const target = document.getElementById(sectionId);
+            if (target) target.classList.add('active');
+
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
+            const activeLink = document.querySelector(`.nav-links a[data-section="${sectionId}"]`);
+            if (activeLink) activeLink.classList.add('active-link');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Animation au scroll
         window.addEventListener('scroll', () => {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                const cardVisible = 150;
-                
-                if (cardTop < window.innerHeight - cardVisible) {
+            document.querySelectorAll('.card').forEach(card => {
+                if (card.getBoundingClientRect().top < window.innerHeight - 150) {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }
             });
         });
 
-        // Initialisation
         document.addEventListener('DOMContentLoaded', () => {
-            // Animation d'entrée pour les cartes
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
+            const sections = ['parcours', 'projets', 'veille', 'e5', 'e6'];
+            document.querySelectorAll('.nav-links a').forEach((link, i) => {
+                link.setAttribute('data-section', sections[i]);
+            });
+            document.querySelector('.nav-links a').classList.add('active-link');
+
+            document.querySelectorAll('.card').forEach((card, i) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
                 card.style.transition = 'all 0.6s ease';
-                card.style.transitionDelay = `${index * 0.1}s`;
-                
+                card.style.transitionDelay = `${i * 0.1}s`;
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                }, 100 + index * 100);
+                }, 100 + i * 100);
             });
         });
     </script>
