@@ -1,6 +1,3 @@
-Voici le code complet (partie tronquée affichée maintenant) :
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -73,12 +70,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         .btn i { margin-right: 8px; }
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
-        }
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
         .card {
             background: rgba(74, 20, 140, 0.4);
             backdrop-filter: blur(10px);
@@ -142,12 +134,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             border: 2px solid rgba(142, 36, 170, 0.3);
         }
-        .excel-wrapper iframe {
-            display: block;
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
+        .excel-wrapper iframe { display: block; width: 100%; height: 600px; border: none; }
         .tag {
             background: rgba(142,36,170,.5);
             padding: .2rem .7rem;
@@ -219,7 +206,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
 </div>
 <div class="card">
 <h3>Présentation</h3>
-<p>Je m'appelle Kory Eoga, j'ai 20 ans et je suis actuellement en BTS SIO, spécialité SISR. Depuis novembre 2025, j'effectue mon alternance chez Stimplus en tant que technicien support informatique.</p>
+<p>Je m'appelle Kory Eoga, j'ai 20 ans et je suis actuellement en BTS SIO, spécialité SISR (Solutions d'Infrastructure, Systèmes et Réseaux). Depuis novembre 2025, j'effectue mon alternance chez Stimplus en tant que technicien support informatique. Mon parcours m'a permis de me réorienter avec motivation vers l'informatique après deux années de licence en Chimie-Biologie. Aujourd'hui, je développe mes compétences techniques à travers des missions concrètes en environnement professionnel, notamment dans le support utilisateur, la gestion des incidents, et l'administration réseau.</p>
 </div>
 <div class="timeline">
   <div class="timeline-item">
@@ -268,7 +255,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
 <div class="grid">
 <div class="card">
 <h3>🏢 Projets en Milieu Professionnel</h3>
-<p>La mission principale était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité.</p>
+<p>La mission principale de ce stage était la proposition et la mise en place de correctifs par rapport à un audit de cybersécurité.</p>
 <h4>Exemples de missions :</h4>
 <ul>
 <li>Sécurisation de la phase de démarrage d'un parc informatique</li>
@@ -284,7 +271,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
 <h4>Compétences touchées :</h4>
 <ul>
 <li>Gérer le patrimoine informatique</li>
-<li>Répondre aux incidents et aux demandes d'assistance</li>
+<li>Répondre aux incidents et aux demandes d'assistance et d'évolution</li>
 <li>Travailler en mode projet</li>
 <li>Mettre à disposition des utilisateurs un service informatique</li>
 <li>Organiser son développement professionnel</li>
@@ -293,7 +280,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
 <div class="card">
 <h3>🎓 Projets en Formation</h3>
 <h4>Atelier de professionnalisation n°1</h4>
-<p>Création d'un environnement virtuel : Windows Server 2019, Windows 10, routeur VyOS, serveur TrueNAS.</p>
+<p>Cet atelier avait pour objectif la création d'un environnement virtuel composé de différentes machines virtuelles : serveur Windows 2019, machine cliente Windows 10, routeur VyOS, serveur de fichiers TrueNAS.</p>
 <h4>Objectifs réalisés :</h4>
 <ul>
 <li>Ajout d'une nouvelle entreprise au domaine</li>
@@ -301,6 +288,14 @@ Voici le code complet (partie tronquée affichée maintenant) :
 <li>Création des groupes et utilisateurs sur Active Directory</li>
 <li>Mise en place de stratégies de groupe</li>
 <li>Configuration des services : DHCP, DNS, annuaire</li>
+</ul>
+<h4>Compétences développées :</h4>
+<ul>
+<li>Gérer le patrimoine informatique</li>
+<li>Répondre aux incidents et aux demandes d'assistance</li>
+<li>Travailler en mode projet</li>
+<li>Mettre à disposition des services informatiques</li>
+<li>Organiser son développement professionnel</li>
 </ul>
 </div>
 </div>
@@ -314,7 +309,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
 </div>
 <div class="card">
 <h3>📜 Qu'est-ce que le RGPD ?</h3>
-<p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il encadre le traitement des données personnelles des citoyens de l'Union Européenne.</p>
+<p>Le Règlement Général sur la Protection des Données (RGPD) est entré en vigueur le 25 mai 2018. Il s'agit d'un règlement européen qui encadre le traitement des données personnelles des citoyens de l'Union Européenne.</p>
 </div>
 <div class="card">
 <h3>🔑 Les grands principes du RGPD</h3>
@@ -322,27 +317,27 @@ Voici le code complet (partie tronquée affichée maintenant) :
 <li><strong>Licéité</strong> — Le traitement doit avoir une base légale</li>
 <li><strong>Minimisation des données</strong> — Ne collecter que les données strictement nécessaires</li>
 <li><strong>Limitation de la conservation</strong> — Ne pas garder les données plus longtemps que nécessaire</li>
-<li><strong>Intégrité et confidentialité</strong> — Protéger contre les accès non autorisés</li>
-<li><strong>Transparence</strong> — Informer clairement les personnes</li>
-<li><strong>Droits des personnes</strong> — Accès, rectification, effacement, portabilité</li>
+<li><strong>Intégrité et confidentialité</strong> — Protéger les données contre les accès non autorisés</li>
+<li><strong>Transparence</strong> — Informer clairement les personnes sur l'utilisation de leurs données</li>
+<li><strong>Droits des personnes</strong> — Droit d'accès, rectification, effacement, portabilité</li>
 </ul>
 </div>
 <div class="card">
 <h3>🏢 Impact en entreprise</h3>
 <ul>
 <li>Gestion des accès et des droits utilisateurs sur Active Directory</li>
-<li>Chiffrement des données sensibles</li>
-<li>Journalisation des accès (logs)</li>
-<li>Politique de sauvegarde et rétention</li>
-<li>Sensibilisation des utilisateurs</li>
+<li>Chiffrement des données sensibles sur les postes et serveurs</li>
+<li>Journalisation des accès aux données (logs)</li>
+<li>Politique de sauvegarde et de rétention des données</li>
+<li>Sensibilisation des utilisateurs aux bonnes pratiques</li>
 </ul>
 </div>
 <div class="card">
 <h3>⚠️ Les sanctions</h3>
 <ul>
 <li>Jusqu'à <strong>20 millions d'euros</strong> d'amende</li>
-<li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong></li>
-<li>Avertissements et mises en demeure publiques</li>
+<li>Ou <strong>4% du chiffre d'affaires annuel mondial</strong> de l'entreprise</li>
+<li>Des avertissements et mises en demeure publiques</li>
 </ul>
 </div>
 <div class="card">
@@ -364,7 +359,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
 
 <div class="card">
 <h3>📋 Présentation de l'épreuve E5</h3>
-<p>Cette section regroupe les 7 projets réalisés dans le cadre de l'épreuve E5 du BTS SIO SISR.</p>
+<p>Cette section regroupe les 7 projets réalisés dans le cadre de l'épreuve E5 du BTS SIO SISR. Chaque fiche détaille le contexte, les étapes techniques, l'environnement et les compétences mobilisées.</p>
 <h4>Compétences évaluées :</h4>
 <ul>
 <li>Gérer le patrimoine informatique</li>
@@ -376,9 +371,15 @@ Voici le code complet (partie tronquée affichée maintenant) :
 </ul>
 </div>
 
+<!--
+  ✅ BOUTON PDF E5
+  Ce bouton pointe vers docs/e5_projets.pdf
+  → Crée un dossier "docs/" dans ton repo GitHub
+  → Dépose-y le fichier e5_projets.pdf téléchargé ci-dessus
+-->
 <div class="btn-group">
-<a href="docs/tableau.pdf" class="btn" target="_blank">
-<i class="fas fa-file-pdf"></i> Voir version PDF
+<a href="docs/e5_projets.pdf" class="btn" target="_blank">
+<i class="fas fa-file-pdf"></i> Voir les 7 projets E5 en PDF
 </a>
 </div>
 
@@ -395,7 +396,13 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <h3>📧 Support Outlook / IMAP</h3>
       <span class="project-badge">Sep 2023 – Mai 2024</span>
     </div>
-    <p style="margin:.5rem 0 1rem;">Résolution d'erreurs de synchronisation Outlook (IMAP/SMTP) pour les utilisateurs Goron : dossiers non synchronisés, erreurs d'envoi/réception.</p>
+    <p style="margin:.5rem 0 1rem;">Résolution d'erreurs de synchronisation Outlook (IMAP/SMTP) pour les utilisateurs de l'environnement Goron : dossiers non synchronisés, erreurs d'envoi/réception.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Microsoft Outlook (desktop)</li>
+      <li>Serveur IMAP / SMTP — Windows 10/11</li>
+      <li>Antivirus / proxy entreprise</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
       <li>Vérification et correction des paramètres IMAP/SMTP (port 993 / 587)</li>
@@ -420,7 +427,12 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <h3>🔐 Azure AD / Entra ID – AADSTS90072</h3>
       <span class="project-badge">Nov 2023 – Jan 2024</span>
     </div>
-    <p style="margin:.5rem 0 1rem;">Résolution d'erreurs d'authentification Azure AD (AADSTS90072) — sessions expirées et cache corrompu sur poste non géré par Intune.</p>
+    <p style="margin:.5rem 0 1rem;">Résolution d'erreurs d'authentification Azure AD (AADSTS90072) — sessions expirées et cache corrompu sur poste non géré par Intune (tenant Nexline/Saylinternational).</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Microsoft Entra ID (Azure AD)</li>
+      <li>Windows 10/11 — Microsoft 365</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
       <li>Identification du code erreur AADSTS90072</li>
@@ -446,9 +458,14 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <span class="project-badge">Fév 2024 – Avr 2024</span>
     </div>
     <p style="margin:.5rem 0 1rem;">Diagnostic et résolution de problèmes SSL-VPN FortiGate : magasin de certificats vide, erreur -6006 et 403 Forbidden sur le portail.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>FortiGate Firewall — FortiClient VPN</li>
+      <li>Certificats SSL entreprise</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
-      <li>Analyse des logs FortiClient (-6006 / 403)</li>
+      <li>Analyse des logs FortiClient et identification des erreurs (-6006 / 403)</li>
       <li>Contrôle du certificat SSL sur la console FortiGate</li>
       <li>Vérification de la date/heure du poste client</li>
       <li>Réinstallation de FortiClient et validation config VPN (port 443)</li>
@@ -471,11 +488,17 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <span class="project-badge">Mar 2024 – Mai 2024</span>
     </div>
     <p style="margin:.5rem 0 1rem;">Mise en place de l'envoi automatique d'e-mails depuis Comète SQL via un serveur SMTP Exchange avec authentification sécurisée.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>SQL Server / Comète SQL</li>
+      <li>Serveur SMTP Exchange / externe</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
       <li>Configuration SMTP dans Comète SQL (host, port 587/465)</li>
       <li>Activation de l'authentification SMTP</li>
-      <li>Script SQL de test d'envoi et analyse des logs</li>
+      <li>Rédaction et exécution d'un script SQL de test d'envoi</li>
+      <li>Analyse des logs en cas d'erreur de livraison</li>
       <li>Validation de la réception côté destinataire</li>
     </ul>
     <h4>Compétence(s) :</h4>
@@ -495,12 +518,17 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <span class="project-badge">Sep 2023 – Mai 2024</span>
     </div>
     <p style="margin:.5rem 0 1rem;">Transfert et délégation d'une boîte mail utilisateur dans Microsoft 365 : Full Access, Send As, synchronisation Outlook.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Exchange Online — Microsoft 365 Admin Center</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
       <li>Connexion au Microsoft 365 Admin Center</li>
+      <li>Recherche et sélection de la boîte mail source</li>
       <li>Ajout des délégations Full Access et Send As</li>
-      <li>Réattribution ou transfert de la boîte</li>
-      <li>Vérification synchronisation Outlook côté utilisateur</li>
+      <li>Réattribution ou transfert de la boîte selon le besoin</li>
+      <li>Vérification de la synchronisation Outlook côté utilisateur</li>
     </ul>
     <h4>Compétence(s) :</h4>
     <ul><li>Gérer le patrimoine informatique</li></ul>
@@ -518,13 +546,17 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <h3>📁 Droits dossiers partagés – NTS / Fiscom</h3>
       <span class="project-badge">Sep 2023 – Mai 2024</span>
     </div>
-    <p style="margin:.5rem 0 1rem;">Gestion et correction des permissions sur dossiers partagés réseau pour NTS et Fiscom : droits NTFS, partage, Active Directory.</p>
+    <p style="margin:.5rem 0 1rem;">Gestion et correction des permissions sur dossiers partagés réseau pour NTS et Fiscom : droits NTFS, partage réseau, groupes Active Directory.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Serveur fichiers Windows — Active Directory</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
       <li>Audit des droits NTFS et droits de partage existants</li>
       <li>Ajout des utilisateurs dans les groupes AD appropriés</li>
-      <li>Propagation des droits sur les sous-dossiers</li>
-      <li>Tests d'accès lecture/écriture côté utilisateur</li>
+      <li>Propagation et vérification des droits sur les sous-dossiers</li>
+      <li>Tests d'accès en lecture/écriture côté utilisateur</li>
       <li>Documentation des modifications effectuées</li>
     </ul>
     <h4>Compétence(s) :</h4>
@@ -543,14 +575,19 @@ Voici le code complet (partie tronquée affichée maintenant) :
       <h3>🛡️ Authentification M365 – Entra ID / MFA</h3>
       <span class="project-badge">Sep 2023 – Mai 2024</span>
     </div>
-    <p style="margin:.5rem 0 1rem;">Résolution de problèmes de connexion M365 : comptes bloqués, MFA défaillant, cache navigateur et Windows corrompus.</p>
+    <p style="margin:.5rem 0 1rem;">Résolution de problèmes de connexion M365 liés à l'authentification Entra ID : comptes bloqués, MFA défaillant, cache navigateur et Windows corrompus.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Microsoft Entra ID — Microsoft 365</li>
+      <li>MFA / Microsoft Authenticator</li>
+    </ul>
     <h4>Réalisations :</h4>
     <ul>
-      <li>Vérification du statut du compte dans Entra ID</li>
-      <li>Reset du mot de passe via admin M365</li>
+      <li>Vérification du statut du compte dans Entra ID (actif / bloqué)</li>
+      <li>Reset du mot de passe utilisateur via admin M365</li>
       <li>Réinitialisation et reconfiguration du MFA (Microsoft Authenticator)</li>
-      <li>Nettoyage cache navigateur et credentials Windows</li>
-      <li>Tests de reconnexion Outlook, Teams, SharePoint</li>
+      <li>Nettoyage du cache navigateur et des credentials Windows</li>
+      <li>Tests de reconnexion Outlook, Teams et SharePoint</li>
     </ul>
     <h4>Compétence(s) :</h4>
     <ul><li>Répondre aux incidents et demandes d'assistance</li></ul>
@@ -562,7 +599,7 @@ Voici le code complet (partie tronquée affichée maintenant) :
     </div>
   </div>
 
-</div><!-- fin .grid -->
+</div><!-- fin .grid E5 -->
 
 <div class="excel-section">
 <h2>Suivi de compétences (Excel)</h2>
@@ -579,25 +616,125 @@ Voici le code complet (partie tronquée affichée maintenant) :
 <section id="e6" class="section">
 <div class="hero-alt">
 <h2>Épreuve E6</h2>
-<p>Parcours de professionnalisation</p>
+<p>Parcours de professionnalisation — 2 réalisations professionnelles</p>
 </div>
+
 <div class="card">
 <h3>🎯 Présentation de l'épreuve E6</h3>
-<p>Cette section présentera mon parcours de professionnalisation, incluant mon alternance chez Stimplus.</p>
+<p>L'épreuve E6 évalue le parcours de professionnalisation à travers deux réalisations professionnelles (RP) menées en entreprise et en formation. Chaque fiche RP présente le contexte, l'infrastructure mise en place, les étapes techniques et les compétences mobilisées.</p>
 <h4>Éléments du parcours :</h4>
 <ul>
-<li>Stages et alternance en entreprise</li>
-<li>Projets personnalisés encadrés</li>
-<li>Certifications et formations complémentaires</li>
-<li>Développement des compétences professionnelles</li>
-<li>Projet professionnel et perspectives d'évolution</li>
+<li>Alternance chez Stimplus en tant que technicien support informatique</li>
+<li>Projets d'infrastructure réalisés en environnement Proxmox (ESTIAM Paris)</li>
+<li>Compétences en administration système, réseau et cybersécurité</li>
+<li>Développement professionnel continu</li>
 </ul>
 </div>
+
 <div class="btn-group">
 <a href="docs/tableau.pdf" class="btn" target="_blank">
 <i class="fas fa-file-pdf"></i> Voir version PDF
 </a>
 </div>
+
+<div class="section-header" style="margin-top:2rem;">
+<h2>Mes 2 réalisations E6</h2>
+<p>Projets de synthèse réalisés en formation — ESTIAM Paris</p>
+</div>
+
+<div class="grid">
+
+  <!-- RP1 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>🖧 RP1 — Active Directory Multi-sites + GLPI/LDAP</h3>
+      <span class="project-badge">2024 – 2025</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Mise en place d'une infrastructure Active Directory multi-sites pour la société fictive <strong>Goron IT Services</strong>, avec intégration d'un outil de gestion de parc GLPI couplé à l'annuaire LDAP.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Proxmox VE (hyperviseur)</li>
+      <li>Windows Server 2019 (DC-PARIS / DC-LYON)</li>
+      <li>pfSense (routage inter-sites)</li>
+      <li>GLPI + plugin FusionInventory (srv-glpi : 10.101.0.20)</li>
+      <li>VLAN 101 (ESTIAM-PARIS) — VLAN 102 (ESTIAM-LYON)</li>
+    </ul>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Conception et déploiement de l'AD multi-sites (DC-PARIS / DC-LYON)</li>
+      <li>Configuration des sites et liens de sites AD (réplication inter-DC)</li>
+      <li>Création des UO, groupes et utilisateurs selon l'organigramme Goron IT Services</li>
+      <li>Mise en place des GPO (politique de mot de passe, bureau, restrictions)</li>
+      <li>Installation et configuration de GLPI (srv-glpi : 10.101.0.20)</li>
+      <li>Intégration LDAP/AD dans GLPI pour authentification centralisée</li>
+      <li>Configuration pfSense pour le routage entre les deux sites (VLANs)</li>
+      <li>Tests de connectivité et validation de la réplication AD inter-sites</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul>
+      <li>Gérer le patrimoine informatique</li>
+      <li>Travailler en mode projet</li>
+      <li>Mettre à disposition des utilisateurs un service informatique</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Active Directory</span>
+      <span class="tag">Windows Server 2019</span>
+      <span class="tag">GLPI</span>
+      <span class="tag">LDAP</span>
+      <span class="tag">pfSense</span>
+      <span class="tag">VLAN</span>
+      <span class="tag">Proxmox</span>
+      <span class="tag">GPO</span>
+    </div>
+  </div>
+
+  <!-- RP2 -->
+  <div class="card">
+    <div class="project-header">
+      <h3>🔥 RP2 — Pare-feu pfSense + Supervision Zabbix</h3>
+      <span class="project-badge">2024 – 2025</span>
+    </div>
+    <p style="margin:.5rem 0 1rem;">Déploiement et configuration d'un pare-feu pfSense pour sécuriser le réseau d'entreprise, couplé à Zabbix pour la surveillance des équipements et des services.</p>
+    <h4>Environnement :</h4>
+    <ul>
+      <li>Proxmox VE (hyperviseur)</li>
+      <li>pfSense (pare-feu / routeur — interfaces WAN / LAN / DMZ)</li>
+      <li>Zabbix Server (supervision réseau)</li>
+      <li>Windows Server 2019 / Windows 10 (agents Zabbix)</li>
+    </ul>
+    <h4>Réalisations :</h4>
+    <ul>
+      <li>Installation et configuration de pfSense (interfaces WAN / LAN / DMZ)</li>
+      <li>Création des règles de filtrage pare-feu selon la politique de sécurité</li>
+      <li>Configuration du NAT et des règles de redirection de ports</li>
+      <li>Mise en place d'un VPN SSL sur pfSense pour accès distant sécurisé</li>
+      <li>Installation du serveur Zabbix et configuration de la base de données</li>
+      <li>Déploiement des agents Zabbix sur les machines Windows Server et clients</li>
+      <li>Création des hôtes, groupes et déclencheurs dans Zabbix</li>
+      <li>Mise en place d'alertes e-mail en cas de panne ou seuil dépassé</li>
+      <li>Tests de supervision : simulation de pannes et validation des alertes</li>
+    </ul>
+    <h4>Compétence(s) :</h4>
+    <ul>
+      <li>Gérer le patrimoine informatique</li>
+      <li>Travailler en mode projet</li>
+      <li>Mettre à disposition des utilisateurs un service informatique</li>
+      <li>Organiser son développement professionnel</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">pfSense</span>
+      <span class="tag">Zabbix</span>
+      <span class="tag">Pare-feu</span>
+      <span class="tag">NAT</span>
+      <span class="tag">VPN SSL</span>
+      <span class="tag">Supervision</span>
+      <span class="tag">Proxmox</span>
+      <span class="tag">Alertes</span>
+    </div>
+  </div>
+
+</div><!-- fin .grid E6 -->
+
 <div class="excel-section">
 <h2>Suivi de compétences (Excel)</h2>
 <div class="excel-wrapper">
@@ -654,6 +791,3 @@ Voici le code complet (partie tronquée affichée maintenant) :
 </script>
 </body>
 </html>
-```
-
-Tu peux copier tout ça et le coller directement dans ton fichier `index.html` sur GitHub.
