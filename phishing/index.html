@@ -183,7 +183,6 @@ footer ul{padding-left:18px}
     <p class="lead">Pour les adultes de 20 à 60 ans qui reçoivent des emails sans toujours savoir distinguer le vrai du faux, « Phishing : repérer le piège en 15 minutes » les aide à repérer un email de phishing et à réagir correctement, en 15 à 20 minutes.</p>
     <div class="cta">
       <a class="btn" href="#video">Commencer la formation</a>
-      <a class="btn ghost" href="#fiche">Ma fiche apprenant</a>
     </div>
     <div class="chips"><span class="chip">1 vidéo</span><span class="chip">3 modules</span><span class="chip">3 mises en pratique</span><span class="chip">≈ 17 minutes</span></div>
   </div>
@@ -441,7 +440,8 @@ document.getElementById('check-validate').addEventListener('click',()=>{
   if(ok){msg.style.color='#1f7a52';msg.textContent='Parfait, tous les bons réflexes sont cochés !';
     document.getElementById('locked').hidden=true;document.getElementById('unlocked').hidden=false;
     document.getElementById('download-card').scrollIntoView({behavior:'smooth',block:'center'});}
-  else{msg.style.color='#c0392b';msg.textContent='Pas encore : il manque un bon réflexe, ou un piège est coché (en rouge). Corrigez et validez à nouveau.';}
+  else{document.getElementById('locked').hidden=false;document.getElementById('unlocked').hidden=true;
+    msg.style.color='#c0392b';msg.textContent='Pas encore : il manque un bon réflexe, ou un piège est coché (en rouge). Corrigez et validez à nouveau.';}
 });
 </script>
 </body>
