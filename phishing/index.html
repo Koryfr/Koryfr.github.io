@@ -14,6 +14,7 @@
   --text:#1B2A41; --muted:#5A6B80; --white:#FFFFFF; --radius:16px;
 }
 *{box-sizing:border-box}
+[hidden]{display:none !important}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--white);line-height:1.65;font-size:17px}
 h1,h2,h3{font-family:Poppins,Inter,sans-serif;line-height:1.2;margin:0 0 .6em}
@@ -117,6 +118,32 @@ footer ul{padding-left:18px}
 .disclosure{margin-top:26px;padding:16px 20px;border:1px solid rgba(255,255,255,.2);border-radius:12px;color:#fff}
 .copy{margin-top:30px;font-size:13px;color:#8fa0b5}
 
+
+/* Quiz */
+.quiz .hint{font-size:14px;color:#aeb9c8;margin:8px 0 10px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.08);border:2px solid transparent;border-radius:12px;padding:12px 16px;cursor:pointer;transition:background .15s,border-color .15s}
+.opt:hover{background:rgba(255,255,255,.14)}
+.opt input{margin-top:5px;accent-color:var(--orange);width:18px;height:18px;flex:none}
+.opt.right{border-color:var(--green);background:rgba(59,167,118,.18)}
+.opt.wrong{border-color:#e05a4f;background:rgba(224,90,79,.18)}
+.opt.missed{border-color:var(--green);border-style:dashed}
+.check-btn{margin-top:16px}
+.feedback{margin-top:16px;font-weight:600;font-family:Poppins,sans-serif;font-size:18px}
+.feedback.ok{color:#6fd3a3}.feedback.ko{color:#ff9b8f}
+.explain{margin-top:10px;background:rgba(255,255,255,.08);border-radius:12px;padding:14px 18px}
+/* Checklist interactive */
+.check li{padding:0;border-bottom:1px solid #e3ddd0}
+.check li:before{display:none}
+.check label{display:flex;gap:14px;align-items:center;padding:12px 4px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--green);flex:none}
+.check li.bad label{color:#c0392b}
+.check li.good label{color:#1f7a52}
+#check-validate{margin-top:18px}
+.check-msg{font-weight:600;margin-top:12px;min-height:1.5em}
+.lock{font-size:40px;line-height:1;margin-bottom:10px}
+#unlocked h3{color:var(--green)}
+
 @media (max-width:860px){
   section,.module{padding:56px 0}
   .links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--navy);flex-direction:column;padding:18px 20px 24px;gap:16px}
@@ -156,7 +183,7 @@ footer ul{padding-left:18px}
     <p class="lead">Pour les adultes de 20 à 60 ans qui reçoivent des emails sans toujours savoir distinguer le vrai du faux, « Phishing : repérer le piège en 15 minutes » les aide à repérer un email de phishing et à réagir correctement, en 15 à 20 minutes.</p>
     <div class="cta">
       <a class="btn" href="#video">Commencer la formation</a>
-      <a class="btn ghost" href="Fiche_apprenant_Phishing.pdf" download>Télécharger la fiche</a>
+      <a class="btn ghost" href="#fiche">Ma fiche apprenant</a>
     </div>
     <div class="chips"><span class="chip">1 vidéo</span><span class="chip">3 modules</span><span class="chip">3 mises en pratique</span><span class="chip">≈ 17 minutes</span></div>
   </div>
@@ -233,20 +260,16 @@ footer ul{padding-left:18px}
 
     <div class="practice">
       <span class="label">Mise en pratique · 2 min</span>
-      <h3>Repérez les 4 signaux dans cet email fictif</h3>
+      <h3>Lisez cet email fictif</h3>
       <div class="mail">
         <div class="meta"><strong>De :</strong> Service Colis &lt;suivi@colis-livraison-rapide.exemple&gt;<br><strong>Objet :</strong> Votre colis est bloqué – action requise sous 24 h</div>
         Bonjour, votre colis n’a pas pu être livré. Des frais de 1,99 € sont nécessaires. Cliquez ici pour payer avant demain, sinon il sera renvoyé à l’expéditeur.<br>
         <span class="fake-btn">Payer maintenant</span>
       </div>
-      <details><summary>Voir la réponse</summary>
-        <ol class="clean">
-          <li><strong>Expéditeur :</strong> un domaine inconnu, pas celui d’un transporteur que vous connaissez.</li>
-          <li><strong>Urgence :</strong> « sous 24 h », « avant demain ».</li>
-          <li><strong>Demande :</strong> un paiement, donc vos coordonnées bancaires.</li>
-          <li><strong>Lien :</strong> le bouton « Payer maintenant ».</li>
-        </ol>
-      </details>
+      <h3 style="font-size:17px;margin-top:6px">Quels signaux d’alerte voyez-vous dans cet email ?</h3><div class="quiz" data-quiz="q1"><p class="hint">Plusieurs réponses possibles.</p><div class="opts"><label class="opt"><input type="checkbox" name="q1" value="0" data-ok="1"><span>L’expéditeur : un domaine inconnu</span></label><label class="opt"><input type="checkbox" name="q1" value="1" data-ok="1"><span>L’urgence : « sous 24 h », « avant demain »</span></label><label class="opt"><input type="checkbox" name="q1" value="2" data-ok="1"><span>La demande : un paiement</span></label><label class="opt"><input type="checkbox" name="q1" value="3" data-ok="1"><span>Le lien : le bouton « Payer maintenant »</span></label><label class="opt"><input type="checkbox" name="q1" value="4" data-ok="0"><span>Des fautes d’orthographe</span></label></div>
+        <button class="btn small check-btn" type="button">Valider ma réponse</button>
+        <div class="feedback" hidden></div>
+        <div class="explain" hidden><ol class="clean"><li><strong>Expéditeur :</strong> un domaine inconnu, pas celui d’un transporteur que vous connaissez.</li><li><strong>Urgence :</strong> « sous 24 h », « avant demain ».</li><li><strong>Demande :</strong> un paiement, donc vos coordonnées bancaires.</li><li><strong>Lien :</strong> le bouton « Payer maintenant ».</li></ol><p>Il n’y a <strong>aucune faute d’orthographe</strong> : c’est justement le piège, un email bien écrit peut être faux.</p></div></div>
     </div>
     <p class="remember"><span>À retenir :</span> expéditeur, urgence, demande, lien. Si vous voyez un de ces signaux, ralentissez.</p>
   </div>
@@ -276,9 +299,10 @@ footer ul{padding-left:18px}
       <h3>Est-ce que vous cliquez ?</h3>
       <p>Dans un email, le bouton affiche « Accéder à mon espace client ». En passant la souris dessus, vous voyez cette adresse :</p>
       <span class="url">http://espace-client-verification.exemple/connexion</span>
-      <details><summary>Voir la réponse</summary>
-        <p><strong>Non.</strong> L’adresse réelle ne correspond pas au site officiel de votre organisme, même si le texte du bouton a l’air normal. Fermez l’email et connectez-vous plutôt depuis l’appli ou le site que vous utilisez d’habitude.</p>
-      </details>
+      <div class="quiz" data-quiz="q2"><p class="hint">Une seule bonne réponse.</p><div class="opts"><label class="opt"><input type="radio" name="q2" value="0" data-ok="0"><span>Oui, le bouton dit bien « mon espace client »</span></label><label class="opt"><input type="radio" name="q2" value="1" data-ok="0"><span>Oui, si le site affiche un cadenas</span></label><label class="opt"><input type="radio" name="q2" value="2" data-ok="1"><span>Non, l’adresse réelle ne correspond pas au site officiel</span></label><label class="opt"><input type="radio" name="q2" value="3" data-ok="0"><span>Je clique juste pour vérifier, je ne remplirai rien</span></label></div>
+        <button class="btn small check-btn" type="button">Valider ma réponse</button>
+        <div class="feedback" hidden></div>
+        <div class="explain" hidden><p><strong>Non.</strong> L’adresse réelle ne correspond pas au site officiel de votre organisme, même si le texte du bouton a l’air normal. Le cadenas ne prouve rien, et cliquer « pour voir » est déjà un risque. Fermez l’email et connectez-vous plutôt depuis l’appli ou le site que vous utilisez d’habitude.</p></div></div>
     </div>
     <p class="remember"><span>À retenir :</span> lisez l’adresse, survolez le lien, ne vous fiez pas au cadenas, passez par le site officiel.</p>
   </div>
@@ -317,14 +341,10 @@ footer ul{padding-left:18px}
       <span class="label">Mise en pratique · 2 min</span>
       <h3>Que faites-vous, et dans quel ordre ?</h3>
       <p>Hier soir, vous avez cliqué sur un faux email « Votre compte sera bloqué » et vous avez tapé le mot de passe de votre messagerie. Vous utilisez le même mot de passe sur deux autres sites.</p>
-      <details><summary>Voir la réponse</summary>
-        <ol class="clean">
-          <li>Vous changez tout de suite le mot de passe de votre messagerie, puis celui des deux autres sites.</li>
-          <li>Vous activez la double authentification si elle est proposée.</li>
-          <li>Vous gardez l’email comme preuve et vous le signalez sur Signal Spam.</li>
-          <li>Au moindre doute ou en cas de préjudice, vous demandez de l’aide sur 17cyber.gouv.fr.</li>
-        </ol>
-      </details>
+      <h3 style="font-size:17px;margin-top:6px">Quelle est votre première action ?</h3><div class="quiz" data-quiz="q3"><p class="hint">Une seule bonne réponse.</p><div class="opts"><label class="opt"><input type="radio" name="q3" value="0" data-ok="0"><span>Je réponds à l’email pour demander si c’est vrai</span></label><label class="opt"><input type="radio" name="q3" value="1" data-ok="0"><span>J’attends de voir s’il se passe quelque chose</span></label><label class="opt"><input type="radio" name="q3" value="2" data-ok="1"><span>Je change tout de suite le mot de passe de ma messagerie, puis celui des deux autres sites</span></label><label class="opt"><input type="radio" name="q3" value="3" data-ok="0"><span>Je signale d’abord l’email sur Signal Spam</span></label></div>
+        <button class="btn small check-btn" type="button">Valider ma réponse</button>
+        <div class="feedback" hidden></div>
+        <div class="explain" hidden><p>La priorité, c’est de <strong>couper l’accès</strong> à vos comptes. Dans l’ordre :</p><ol class="clean"><li>Vous changez tout de suite le mot de passe de votre messagerie, puis celui des deux autres sites.</li><li>Vous activez la double authentification si elle est proposée.</li><li>Vous gardez l’email comme preuve et vous le signalez sur Signal Spam.</li><li>Au moindre doute ou en cas de préjudice, vous demandez de l’aide sur 17cyber.gouv.fr.</li></ol></div></div>
     </div>
     <p class="remember"><span>À retenir :</span> ne cliquez pas, signalez, et si vous avez cliqué, agissez vite.</p>
   </div>
@@ -334,19 +354,24 @@ footer ul{padding-left:18px}
   <div class="wrap grid2">
     <div>
       <span class="eyebrow">Votre fiche apprenant · 1 min</span>
-      <h2>Checklist avant de cliquer</h2>
-      <ul class="check">
-        <li>L’adresse de l’expéditeur est-elle la bonne ?</li>
-        <li>Le message me met-il la pression ?</li>
-        <li>Me demande-t-on un mot de passe, un code ou ma carte ?</li>
-        <li>Le lien mène-t-il vraiment au site officiel ?</li>
-        <li>Est-ce que je peux vérifier en passant par l’appli ou le site officiel ?</li>
-      </ul>
+      <h2>Cochez les bons réflexes avant de cliquer</h2>
+      <p>Attention : deux affirmations sont des pièges. Cochez uniquement les bons réflexes pour débloquer votre fiche.</p>
+      <ul class="check" id="checklist"><li><label><input type="checkbox" data-ok="1"><span>Je vérifie l’adresse complète de l’expéditeur</span></label></li><li><label><input type="checkbox" data-ok="1"><span>Je me méfie quand le message me met la pression</span></label></li><li><label><input type="checkbox" data-ok="0"><span>Le site affiche un cadenas, donc il est sûr</span></label></li><li><label><input type="checkbox" data-ok="1"><span>Je ne donne jamais de mot de passe, de code ou de numéro de carte par email</span></label></li><li><label><input type="checkbox" data-ok="1"><span>Je survole le lien pour voir la vraie adresse avant de cliquer</span></label></li><li><label><input type="checkbox" data-ok="0"><span>L’email n’a aucune faute, donc il est fiable</span></label></li><li><label><input type="checkbox" data-ok="1"><span>Je vérifie en passant par l’appli ou le site officiel</span></label></li></ul>
+      <button class="btn small" type="button" id="check-validate">Valider ma checklist</button>
+      <p class="check-msg" id="check-msg" aria-live="polite"></p>
     </div>
-    <div class="download">
-      <h3>Gardez-la à portée de main</h3>
-      <p>Elle reprend tous les réflexes de la formation : les 4 signaux, les étapes de vérification, quoi faire après un clic, la checklist et le glossaire.</p>
-      <a class="btn" href="Fiche_apprenant_Phishing.pdf" download>Télécharger la fiche (PDF)</a>
+    <div class="download" id="download-card">
+      <div id="locked">
+        <div class="lock" aria-hidden="true">🔒</div>
+        <h3>Votre fiche vous attend</h3>
+        <p>Cochez tous les bons réflexes, et seulement eux, pour la débloquer.</p>
+      </div>
+      <div id="unlocked" hidden>
+        <div class="lock" aria-hidden="true">🎉</div>
+        <h3>Bravo ! Vous êtes maintenant prêt(e) à déjouer les arnaques par email.</h3>
+        <p>Gardez votre fiche à portée de main : elle reprend les 4 signaux, les étapes de vérification, quoi faire après un clic, la checklist et le glossaire.</p>
+        <a class="btn" href="Fiche_apprenant_Phishing.pdf" download>Télécharger la fiche (PDF)</a>
+      </div>
     </div>
   </div>
 </section>
@@ -386,6 +411,38 @@ footer ul{padding-left:18px}
 </footer>
 <script>
 document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('open')));
+
+document.querySelectorAll('.quiz').forEach(q=>{
+  q.querySelector('.check-btn').addEventListener('click',()=>{
+    const inputs=[...q.querySelectorAll('input')];
+    if(!inputs.some(i=>i.checked)){const f=q.querySelector('.feedback');f.hidden=false;f.className='feedback ko';f.textContent='Choisissez au moins une réponse.';return;}
+    let ok=true;
+    inputs.forEach(i=>{const l=i.closest('.opt');l.classList.remove('right','wrong','missed');
+      const good=i.dataset.ok==='1';
+      if(i.checked&&good)l.classList.add('right');
+      else if(i.checked&&!good){l.classList.add('wrong');ok=false;}
+      else if(!i.checked&&good){l.classList.add('missed');ok=false;}
+      i.disabled=true;});
+    const f=q.querySelector('.feedback');f.hidden=false;
+    f.className='feedback '+(ok?'ok':'ko');
+    f.textContent=ok?'Bonne réponse, bien joué !':'Pas tout à fait. Voici la correction :';
+    q.querySelector('.explain').hidden=false;
+    q.querySelector('.check-btn').hidden=true;
+  });
+});
+document.getElementById('check-validate').addEventListener('click',()=>{
+  const items=[...document.querySelectorAll('#checklist input')];
+  let ok=true;
+  items.forEach(i=>{const li=i.closest('li');li.classList.remove('good','bad');
+    if(i.checked&&i.dataset.ok==='0'){li.classList.add('bad');ok=false;}
+    if(!i.checked&&i.dataset.ok==='1'){ok=false;}
+    if(i.checked&&i.dataset.ok==='1'){li.classList.add('good');}});
+  const msg=document.getElementById('check-msg');
+  if(ok){msg.style.color='#1f7a52';msg.textContent='Parfait, tous les bons réflexes sont cochés !';
+    document.getElementById('locked').hidden=true;document.getElementById('unlocked').hidden=false;
+    document.getElementById('download-card').scrollIntoView({behavior:'smooth',block:'center'});}
+  else{msg.style.color='#c0392b';msg.textContent='Pas encore : il manque un bon réflexe, ou un piège est coché (en rouge). Corrigez et validez à nouveau.';}
+});
 </script>
 </body>
 </html>
