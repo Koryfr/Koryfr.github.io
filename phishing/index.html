@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phishing : repérer le piège en 15 minutes</title>
+<meta name="description" content="Mini-formation gratuite : repérer un email de phishing et réagir correctement, en 15 à 20 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A41; --navy2:#22344F; --sky:#4A90C2; --cream:#F4F1EA; --orange:#F28C28; --green:#3BA776;
+  --text:#1B2A41; --muted:#5A6B80; --white:#FFFFFF; --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--white);line-height:1.65;font-size:17px}
+h1,h2,h3{font-family:Poppins,Inter,sans-serif;line-height:1.2;margin:0 0 .6em}
+a{color:var(--sky)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:80px 0;scroll-margin-top:70px}
+.eyebrow{display:inline-block;font:600 13px/1 Poppins,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(27,42,65,.97);backdrop-filter:blur(6px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font:700 18px Poppins,sans-serif;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand .hook{width:28px;height:28px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:15px}
+.links{display:flex;gap:26px;align-items:center}
+.links a{color:#dfe6ef;text-decoration:none;font-size:15px;font-weight:500}
+.links a:hover{color:#fff}
+.btn{display:inline-block;background:var(--orange);color:#fff !important;text-decoration:none;font:600 16px Poppins,sans-serif;padding:14px 26px;border-radius:10px;transition:transform .15s,background .15s}
+.btn:hover{background:#e07a17;transform:translateY(-1px)}
+.btn.small{padding:10px 18px;font-size:14px}
+.btn.ghost{background:transparent;border:2px solid rgba(255,255,255,.6)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+/* Hero */
+.hero{position:relative;color:#fff;background:var(--navy);padding:0;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url(img/cover_v1.jpg) right center/cover no-repeat}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(27,42,65,.92) 38%,rgba(27,42,65,.35) 70%,rgba(27,42,65,.1) 100%)}
+.hero .wrap{position:relative;padding-top:110px;padding-bottom:120px}
+.hero h1{font-size:clamp(34px,5vw,58px);max-width:640px}
+.hero p.lead{font-size:clamp(17px,1.6vw,20px);max-width:560px;color:#e6ebf2}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:7px 14px;border-radius:999px;font-size:14px}
+
+/* Why */
+.why{background:var(--cream)}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.stat{background:#fff;border-radius:var(--radius);padding:28px 30px;box-shadow:0 8px 30px rgba(27,42,65,.08)}
+.stat b{display:block;font:700 60px/1 Poppins,sans-serif;color:var(--orange);margin-bottom:8px}
+.stat small{color:var(--muted);font-size:13px}
+
+/* Programme */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.step{border:1px solid #e3e7ee;border-radius:var(--radius);padding:26px;background:#fff}
+.step .n{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font:700 18px Poppins,sans-serif;margin-bottom:14px}
+.step .t{color:var(--orange);font-weight:600;font-size:14px}
+.goals{margin-top:34px;background:var(--cream);border-radius:var(--radius);padding:24px 30px}
+.goals li{margin:6px 0}
+
+/* Video */
+.video{background:var(--navy);color:#fff}
+.video p{color:#d6dde7}
+.player{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);background:#000;margin-top:26px}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ai-note{font-size:14px;color:#aeb9c8;margin-top:14px}
+
+/* Modules */
+.module{padding:80px 0}
+.module:nth-of-type(even){background:var(--cream)}
+.mod-head{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:34px}
+.mod-head img{width:100%;border-radius:var(--radius);box-shadow:0 12px 34px rgba(27,42,65,.18)}
+.tag{display:inline-block;background:var(--navy);color:#fff;font:600 13px Poppins,sans-serif;padding:6px 12px;border-radius:8px;margin-bottom:12px}
+.objective{color:var(--muted);font-style:italic}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:#fff;border-radius:14px;padding:22px 24px;border:1px solid #e3e7ee}
+.card h3{font-size:18px;margin-bottom:6px}
+.card h3 span{color:var(--orange)}
+.note{margin-top:18px;background:#fff7ee;border:1px solid #f7cfa5;border-radius:14px;padding:16px 20px}
+.practice{margin-top:30px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:28px 30px}
+.practice h3{color:#fff}
+.practice .label{color:var(--orange);font:600 13px Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mail{background:#fff;color:var(--text);border-radius:12px;padding:18px 20px;margin:16px 0;font-size:15px;border-left:0}
+.mail .meta{color:var(--muted);font-size:14px;border-bottom:1px solid #e3e7ee;padding-bottom:8px;margin-bottom:10px}
+.mail .fake-btn{display:inline-block;background:#2b6cb0;color:#fff;padding:8px 14px;border-radius:6px;font-size:14px;margin-top:6px}
+.url{font-family:ui-monospace,Menlo,Consolas,monospace;background:#fff;color:#c0392b;padding:12px 16px;border-radius:10px;display:inline-block;margin:10px 0;word-break:break-all}
+details{margin-top:14px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px 18px}
+details summary{cursor:pointer;font-weight:600;color:var(--green)}
+details[open] summary{margin-bottom:8px}
+.remember{margin-top:22px;font-weight:600}
+.remember span{color:var(--orange)}
+ol.clean,ul.clean{padding-left:22px}
+ol.clean li,ul.clean li{margin:6px 0}
+
+/* Fiche */
+.fiche{background:var(--cream)}
+.check{list-style:none;padding:0}
+.check li{padding:10px 0 10px 38px;position:relative;border-bottom:1px solid #e3ddd0}
+.check li:before{content:"";position:absolute;left:0;top:12px;width:22px;height:22px;border:2px solid var(--green);border-radius:6px}
+.download{background:#fff;border-radius:var(--radius);padding:30px;text-align:left;box-shadow:0 8px 30px rgba(27,42,65,.08)}
+
+/* Contacts */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+.contact{border:1px solid #e3e7ee;border-radius:14px;padding:20px}
+.contact b{display:block;font-family:Poppins,sans-serif;font-size:18px;color:var(--navy)}
+.contact small{color:var(--muted)}
+
+/* Footer */
+footer{background:var(--navy);color:#cfd8e3;padding:60px 0 40px;font-size:15px}
+footer h2{color:#fff;font-size:24px}
+footer ul{padding-left:18px}
+.disclosure{margin-top:26px;padding:16px 20px;border:1px solid rgba(255,255,255,.2);border-radius:12px;color:#fff}
+.copy{margin-top:30px;font-size:13px;color:#8fa0b5}
+
+@media (max-width:860px){
+  section,.module{padding:56px 0}
+  .links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--navy);flex-direction:column;padding:18px 20px 24px;gap:16px}
+  .links.open{display:flex}
+  .menu-btn{display:block}
+  .grid2,.mod-head{grid-template-columns:1fr;gap:28px}
+  .steps,.cards{grid-template-columns:1fr}
+  .hero .shade{background:rgba(27,42,65,.86)}
+  .hero .wrap{padding-top:70px;padding-bottom:80px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#accueil"><span class="hook" aria-hidden="true">!</span>Repérer le piège</a>
+    <button class="menu-btn" aria-label="Ouvrir le menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+    <nav class="links" aria-label="Menu principal">
+      <a href="#programme">Programme</a>
+      <a href="#video">Vidéo</a>
+      <a href="#module1">Modules</a>
+      <a href="#fiche">Fiche apprenant</a>
+      <a href="#credits">Crédits</a>
+      <a class="btn small" href="#video">Commencer</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil" aria-label="Accueil">
+  <div class="bg" role="img" aria-label="Illustration : une femme devant son ordinateur regarde une enveloppe accrochée à un hameçon orange."></div>
+  <div class="shade"></div>
+  <div class="wrap">
+    <span class="eyebrow">Mini-formation gratuite</span>
+    <h1>Phishing : repérer le piège en 15 minutes</h1>
+    <p class="lead">Pour les adultes de 20 à 60 ans qui reçoivent des emails sans toujours savoir distinguer le vrai du faux, « Phishing : repérer le piège en 15 minutes » les aide à repérer un email de phishing et à réagir correctement, en 15 à 20 minutes.</p>
+    <div class="cta">
+      <a class="btn" href="#video">Commencer la formation</a>
+      <a class="btn ghost" href="Fiche_apprenant_Phishing.pdf" download>Télécharger la fiche</a>
+    </div>
+    <div class="chips"><span class="chip">1 vidéo</span><span class="chip">3 modules</span><span class="chip">3 mises en pratique</span><span class="chip">≈ 17 minutes</span></div>
+  </div>
+</section>
+
+<section class="why" id="pourquoi">
+  <div class="wrap grid2">
+    <div>
+      <span class="eyebrow">Pourquoi cette formation ? · 1 min</span>
+      <h2>Un faux message qui se fait passer pour quelqu’un de confiance</h2>
+      <p>Le phishing est un faux message. Quelqu’un se fait passer pour un organisme de confiance : votre banque, un service de livraison, une administration. Son but : vous faire cliquer, ou vous faire donner vos informations.</p>
+      <p>Et ce n’est plus seulement une histoire de fautes d’orthographe : avec l’IA, les faux emails sont désormais bien écrits. Il faut donc d’autres repères. C’est ce que vous allez apprendre.</p>
+    </div>
+    <div class="stat">
+      <b>N°1</b>
+      Le phishing est devenu la menace n°1 en France en 2025.
+      <br><small>Source : rapport d’activité 2025 de Cybermalveillance.gouv.fr</small>
+    </div>
+  </div>
+</section>
+
+<section id="programme">
+  <div class="wrap">
+    <span class="eyebrow">Le programme</span>
+    <h2>Comment suivre la formation</h2>
+    <p>Regardez la vidéo, lisez les 3 modules dans l’ordre, faites les mises en pratique, puis téléchargez votre fiche apprenant. Durée totale : environ 17 minutes.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Les 4 signaux d’alerte</h3><p>Savoir repérer un email suspect.</p><span class="t">6 min</span></div>
+      <div class="step"><div class="n">2</div><h3>Vérifier sans cliquer</h3><p>Contrôler un expéditeur et un lien sans prendre de risque.</p><span class="t">5 min</span></div>
+      <div class="step"><div class="n">3</div><h3>Réagir et signaler</h3><p>Savoir quoi faire en cas de doute, ou si vous avez déjà cliqué.</p><span class="t">6 min</span></div>
+    </div>
+    <div class="goals">
+      <strong>À la fin, vous saurez :</strong>
+      <ul class="clean">
+        <li>identifier au moins 4 signaux d’alerte dans un email suspect ;</li>
+        <li>vérifier l’adresse d’un expéditeur et la destination d’un lien sans cliquer ;</li>
+        <li>signaler un email suspect et réagir correctement après un clic.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <span class="eyebrow">Commencez par la vidéo · 1 min 30</span>
+    <h2>Les 4 signaux d’alerte, en vidéo</h2>
+    <p>Cette vidéo résume les 4 signaux d’alerte. Les modules ci-dessous les détaillent, avec des exemples.</p>
+    <div class="player">
+      <iframe src="https://www.youtube-nocookie.com/embed/LoF1jnCizGQ?rel=0" title="Vidéo de leçon : les 4 signaux d’alerte" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <p class="ai-note">Cette vidéo utilise un avatar, une voix, des clips, des images et une musique générés par IA. · <a href="https://youtu.be/LoF1jnCizGQ" target="_blank" rel="noopener" style="color:#9cc6e8">Ouvrir sur YouTube</a></p>
+  </div>
+</section>
+
+<!-- MODULE 1 -->
+<section class="module" id="module1">
+  <div class="wrap">
+    <div class="mod-head">
+      <div>
+        <span class="tag">Module 1 · 6 min</span>
+        <h2>Les 4 signaux d’alerte</h2>
+        <p class="objective">Objectif : identifier au moins 4 signaux d’alerte dans un email suspect.</p>
+        <p>Un exemple que tout le monde a déjà reçu : « Votre colis est en attente. Payez 1,99 € de frais de livraison. » Le message est court, il a l’air officiel, et il vous pousse à cliquer. Voici les 4 signaux qui doivent vous alerter.</p>
+      </div>
+      <img src="img/module1_v1.jpg" alt="Illustration : une enveloppe ouverte entourée de quatre icônes d’alerte : une personne, une horloge, une clé et un trombone.">
+    </div>
+    <div class="cards">
+      <div class="card"><h3><span>1.</span> L’expéditeur</h3><p>Regardez l’adresse complète, pas seulement le nom affiché. Le nom peut dire « Ma Banque », alors que l’adresse vient d’un domaine inconnu.</p></div>
+      <div class="card"><h3><span>2.</span> L’urgence</h3><p>« Votre compte sera bloqué dans 24 heures. » « Dernier rappel. » L’urgence sert à vous empêcher de réfléchir. Un vrai organisme vous laisse le temps.</p></div>
+      <div class="card"><h3><span>3.</span> La demande</h3><p>Un mot de passe, un code, un numéro de carte. Ces informations-là, ne les donnez jamais par email.</p></div>
+      <div class="card"><h3><span>4.</span> Le lien ou la pièce jointe</h3><p>Un bouton « Cliquez ici », un fichier que vous n’attendiez pas. C’est souvent là que se cache le piège.</p></div>
+    </div>
+    <div class="note"><strong>Et les fautes d’orthographe ?</strong> Elles peuvent alerter. Mais aujourd’hui, l’IA écrit sans aucune faute. Un message bien écrit n’est donc pas forcément un vrai message.</div>
+
+    <div class="practice">
+      <span class="label">Mise en pratique · 2 min</span>
+      <h3>Repérez les 4 signaux dans cet email fictif</h3>
+      <div class="mail">
+        <div class="meta"><strong>De :</strong> Service Colis &lt;suivi@colis-livraison-rapide.exemple&gt;<br><strong>Objet :</strong> Votre colis est bloqué – action requise sous 24 h</div>
+        Bonjour, votre colis n’a pas pu être livré. Des frais de 1,99 € sont nécessaires. Cliquez ici pour payer avant demain, sinon il sera renvoyé à l’expéditeur.<br>
+        <span class="fake-btn">Payer maintenant</span>
+      </div>
+      <details><summary>Voir la réponse</summary>
+        <ol class="clean">
+          <li><strong>Expéditeur :</strong> un domaine inconnu, pas celui d’un transporteur que vous connaissez.</li>
+          <li><strong>Urgence :</strong> « sous 24 h », « avant demain ».</li>
+          <li><strong>Demande :</strong> un paiement, donc vos coordonnées bancaires.</li>
+          <li><strong>Lien :</strong> le bouton « Payer maintenant ».</li>
+        </ol>
+      </details>
+    </div>
+    <p class="remember"><span>À retenir :</span> expéditeur, urgence, demande, lien. Si vous voyez un de ces signaux, ralentissez.</p>
+  </div>
+</section>
+
+<!-- MODULE 2 -->
+<section class="module" id="module2">
+  <div class="wrap">
+    <div class="mod-head">
+      <img src="img/module2_v1.jpg" alt="Illustration : une loupe au-dessus d’un email révèle un hameçon caché derrière un bouton.">
+      <div>
+        <span class="tag">Module 2 · 5 min</span>
+        <h2>Vérifier sans cliquer</h2>
+        <p class="objective">Objectif : vérifier l’adresse d’un expéditeur et la destination d’un lien sans cliquer.</p>
+        <p>Vous avez repéré un signal d’alerte. Maintenant, comment vérifier sans prendre de risque ? Voici trois vérifications, puis un réflexe.</p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><h3><span>1.</span> L’adresse de l’expéditeur</h3><p>Lisez-la lettre par lettre. Une seule lettre peut changer : un « l » remplacé par un « i », ou un nom de marque suivi d’un domaine inconnu.</p></div>
+      <div class="card"><h3><span>2.</span> Le lien</h3><p>Sur ordinateur, passez la souris sur le lien, sans cliquer. L’adresse réelle s’affiche en bas de l’écran. Si elle ne correspond pas au site officiel, c’est un piège. Sur téléphone, c’est plus difficile à voir : dans le doute, ne touchez pas le lien.</p></div>
+      <div class="card"><h3><span>3.</span> Le cadenas</h3><p>Attention, c’est un piège classique. Le petit cadenas dans la barre d’adresse veut seulement dire que la connexion est chiffrée. Il ne prouve pas que le site est le bon : beaucoup de sites de phishing en affichent un aussi.</p></div>
+      <div class="card"><h3><span>✓</span> Le réflexe le plus sûr</h3><p>Ne passez pas par l’email. Ouvrez vous-même l’appli ou le site officiel, ou appelez l’organisme avec un numéro que vous connaissez déjà. Si le message était vrai, l’information sera aussi là.</p></div>
+    </div>
+
+    <div class="practice">
+      <span class="label">Mise en pratique · 2 min</span>
+      <h3>Est-ce que vous cliquez ?</h3>
+      <p>Dans un email, le bouton affiche « Accéder à mon espace client ». En passant la souris dessus, vous voyez cette adresse :</p>
+      <span class="url">http://espace-client-verification.exemple/connexion</span>
+      <details><summary>Voir la réponse</summary>
+        <p><strong>Non.</strong> L’adresse réelle ne correspond pas au site officiel de votre organisme, même si le texte du bouton a l’air normal. Fermez l’email et connectez-vous plutôt depuis l’appli ou le site que vous utilisez d’habitude.</p>
+      </details>
+    </div>
+    <p class="remember"><span>À retenir :</span> lisez l’adresse, survolez le lien, ne vous fiez pas au cadenas, passez par le site officiel.</p>
+  </div>
+</section>
+
+<!-- MODULE 3 -->
+<section class="module" id="module3">
+  <div class="wrap">
+    <div class="mod-head">
+      <div>
+        <span class="tag">Module 3 · 6 min</span>
+        <h2>Réagir et signaler</h2>
+        <p class="objective">Objectif : signaler un email suspect et réagir correctement après un clic.</p>
+        <p><strong>Pour vous protéger à l’avenir :</strong> activez la double authentification quand le site le propose. Elle ajoute une protection en plus sur vos comptes.</p>
+      </div>
+      <img src="img/module3_v1.jpg" alt="Illustration : une main dépose une enveloppe suspecte dans une boîte marquée d’un drapeau, à côté d’un téléphone affichant un bouclier vert.">
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Vous avez un doute ?</h3>
+        <ol class="clean">
+          <li>Ne répondez pas, ne cliquez pas, n’ouvrez pas la pièce jointe.</li>
+          <li>Signalez-le : un email sur Signal Spam (signal-spam.fr), l’adresse d’un faux site sur Phishing Initiative, un SMS en le transférant gratuitement au 33700.</li>
+          <li>Au travail, prévenez aussi votre service informatique : un email reçu par une personne est souvent reçu par toute l’équipe.</li>
+          <li>Classez le message en indésirable.</li>
+        </ol></div>
+      <div class="card"><h3>Vous avez cliqué ? Pas de panique, agissez vite.</h3>
+        <ol class="clean">
+          <li>Mot de passe donné : changez-le tout de suite, sur ce site et sur tous les sites où vous utilisez le même.</li>
+          <li>Coordonnées bancaires données : appelez votre banque pour faire opposition, immédiatement.</li>
+          <li>Gardez le message comme preuve. Selon le préjudice, vous pouvez porter plainte.</li>
+          <li>Aide gratuite : 17cyber.gouv.fr, ou Info Escroqueries au 0 805 805 817.</li>
+        </ol></div>
+    </div>
+
+    <div class="practice">
+      <span class="label">Mise en pratique · 2 min</span>
+      <h3>Que faites-vous, et dans quel ordre ?</h3>
+      <p>Hier soir, vous avez cliqué sur un faux email « Votre compte sera bloqué » et vous avez tapé le mot de passe de votre messagerie. Vous utilisez le même mot de passe sur deux autres sites.</p>
+      <details><summary>Voir la réponse</summary>
+        <ol class="clean">
+          <li>Vous changez tout de suite le mot de passe de votre messagerie, puis celui des deux autres sites.</li>
+          <li>Vous activez la double authentification si elle est proposée.</li>
+          <li>Vous gardez l’email comme preuve et vous le signalez sur Signal Spam.</li>
+          <li>Au moindre doute ou en cas de préjudice, vous demandez de l’aide sur 17cyber.gouv.fr.</li>
+        </ol>
+      </details>
+    </div>
+    <p class="remember"><span>À retenir :</span> ne cliquez pas, signalez, et si vous avez cliqué, agissez vite.</p>
+  </div>
+</section>
+
+<section class="fiche" id="fiche">
+  <div class="wrap grid2">
+    <div>
+      <span class="eyebrow">Votre fiche apprenant · 1 min</span>
+      <h2>Checklist avant de cliquer</h2>
+      <ul class="check">
+        <li>L’adresse de l’expéditeur est-elle la bonne ?</li>
+        <li>Le message me met-il la pression ?</li>
+        <li>Me demande-t-on un mot de passe, un code ou ma carte ?</li>
+        <li>Le lien mène-t-il vraiment au site officiel ?</li>
+        <li>Est-ce que je peux vérifier en passant par l’appli ou le site officiel ?</li>
+      </ul>
+    </div>
+    <div class="download">
+      <h3>Gardez-la à portée de main</h3>
+      <p>Elle reprend tous les réflexes de la formation : les 4 signaux, les étapes de vérification, quoi faire après un clic, la checklist et le glossaire.</p>
+      <a class="btn" href="Fiche_apprenant_Phishing.pdf" download>Télécharger la fiche (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <span class="eyebrow">Contacts utiles</span>
+    <h2>À qui signaler, qui appeler</h2>
+    <div class="contacts">
+      <div class="contact"><small>Signaler un email</small><b>Signal Spam</b>signal-spam.fr</div>
+      <div class="contact"><small>Signaler un faux site</small><b>Phishing Initiative</b></div>
+      <div class="contact"><small>Signaler un SMS</small><b>33700</b>transfert gratuit</div>
+      <div class="contact"><small>Être aidé</small><b>17Cyber</b>17cyber.gouv.fr</div>
+      <div class="contact"><small>Être conseillé</small><b>0 805 805 817</b>Info Escroqueries (gratuit)</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="credits">
+  <div class="wrap">
+    <h2>Crédits et IA</h2>
+    <ul>
+      <li>Conception et vérification : Kory EOGA</li>
+      <li>Textes : rédigés avec l’aide de Claude (Anthropic), vérifiés dans des sources officielles</li>
+      <li>Visuels : ChatGPT (OpenAI)</li>
+      <li>Avatar et voix : HeyGen (personnage fictif généré par IA)</li>
+      <li>Clips vidéo : Google Flow (Veo 3.1 Lite)</li>
+      <li>Musique : aisong.io</li>
+      <li>Montage et effet sonore : CapCut</li>
+      <li>Sources : Cybermalveillance.gouv.fr (fiche réflexe Hameçonnage, rapport d’activité 2025), INC, IBM, Blog du Modérateur</li>
+      <li>Les emails et adresses des mises en pratique sont fictifs.</li>
+    </ul>
+    <p class="disclosure">Cette formation utilise un avatar, une voix, des clips, des images et une musique générés par IA. Les contenus ont été vérifiés dans des sources officielles.</p>
+    <p class="copy">Mini-formation réalisée par Kory EOGA · 3AIADV AI-Powered Mini-Training · ESTIAM 2026</p>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('open')));
+</script>
+</body>
+</html>
